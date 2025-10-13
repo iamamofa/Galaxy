@@ -1,228 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-
 <head>
-    <script type="module" src="%40vite/client"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R Programming - Cholera Analysis Course</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nextflow - Cholera Analysis Course</title>
-    <link rel="stylesheet" href="src/style.css" />
-  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <h1>Cholera Sample Analysis with Galaxy</h1>
-        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
-      </div>
-    </header>
-    <nav class="nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="index-2.html">Home</a></li>
-          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
-          <li><a href="conda.html">Package Management</a></li>
-          <li><a href="containers.html">Containers</a></li>
-          <li><a href="nextflow.html" class="active">Nextflow</a></li>
-          <li><a href="r-programming.html">R Programming</a></li>
-          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
-          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
-          <li><a href="workflows.html">Workflows</a></li>
-          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
-        </ul>
-      </div>
-    </nav>
-    <main class="container">
-      <div class="module-nav">
-        <a href="containers.html">← Previous: Containers</a>
-        <a href="r-programming.html">Next: R Programming →</a>
-      </div>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>R Programming for Bioinformatics</h1>
+      <p class="subtitle">An Introduction to Data Analysis and Visualization in R</p>
+    </div>
+  </header>
 
-      <div class="content-box">
-        <h1>Nextflow for Bioinformatics</h1>
-        <h2>Build Scalable and Reproducible Pipelines</h2>
-        <p>Nextflow is a powerful workflow management system that enables scalable and reproducible bioinformatics pipelines. It supports Docker, Singularity, and major cloud platforms.</p>
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="index-2.html">Home</a></li>
+        <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="conda.html">Package Management</a></li>
+        <li><a href="containers.html">Containers</a></li>
+        <li><a href="nextflow.html">Nextflow</a></li>
+        <li><a href="r-programming.html" class="active">R Programming</a></li>
+        <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+        <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
+        <li><a href="workflows.html">Workflows</a></li>
+        <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        <h2>Why Nextflow?</h2>
-        <ul>
-          <li>Portable - runs on local computers, clusters, and cloud</li>
-          <li>Reproducible - supports containers and conda environments</li>
-          <li>Scalable - parallel execution across multiple nodes</li>
-          <li>Resumable - continue from where you left off if something fails</li>
-        </ul>
+  <main class="container">
+    <div class="module-nav">
+      <a href="nextflow.html">← Previous: Nextflow</a>
+      <a href="galaxy-intro.html">Next: Galaxy Introduction →</a>
+    </div>
 
-        <h2>Installing Nextflow</h2>
+    <div class="content-box">
+      <h1>Introduction to R Programming</h1>
+      <h2>Why Learn R?</h2>
+      <p>R is a programming language designed for statistical computing and graphics. It is widely used in bioinformatics, genomics, and data science to analyze, visualize, and model biological data.</p>
 
-        <div class="step-box">
-          <h3>Quick Installation</h3>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #6a9955;"># Install Nextflow</code><br>
-            <code style="color: #4ec9b0;">$ curl -s https://get.nextflow.io | bash</code><br><br>
-            <code style="color: #6a9955;"># Make it executable</code><br>
-            <code style="color: #4ec9b0;">$ chmod +x nextflow</code><br><br>
-            <code style="color: #6a9955;"># Move to PATH</code><br>
-            <code style="color: #4ec9b0;">$ sudo mv nextflow /usr/local/bin/</code><br><br>
-            <code style="color: #6a9955;"># Test installation</code><br>
-            <code style="color: #4ec9b0;">$ nextflow info</code>
-          </div>
+      <ul>
+        <li>Open-source and cross-platform</li>
+        <li>Powerful for data manipulation and visualization</li>
+        <li>Strong community and extensive package ecosystem (CRAN, Bioconductor)</li>
+        <li>Ideal for reproducible research and reporting</li>
+      </ul>
+
+      <h2>Installing R and RStudio</h2>
+      <div class="step-box">
+        <h3>Steps</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code># Install R (Ubuntu/Linux)</code><br>
+          <code>$ sudo apt install r-base</code><br><br>
+          <code># Install RStudio (Optional IDE)</code><br>
+          <code>Download from: https://posit.co/download/rstudio/</code><br><br>
+          <code># Start R</code><br>
+          <code>$ R</code>
         </div>
-
-        <h2>Nextflow Basics - DSL2 Syntax</h2>
-
-        <div class="step-box">
-          <h3>Simple Nextflow Script</h3>
-          <p>Create a file called <code>hello.nf</code>:</p>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #569cd6;">#!/usr/bin/env nextflow</code><br>
-            <code style="color: #569cd6;">nextflow.enable.dsl=2</code><br><br>
-            <code style="color: #6a9955;">// Simple process</code><br>
-            <code style="color: #569cd6;">process</code> <code style="color: #dcdea4;">sayHello</code> {<br>
-            <code>    output:</code><br>
-            <code>    stdout</code><br><br>
-            <code>    script:</code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>    <code style="color: #ce9178;">echo 'Hello Bioinformatics!'</code></code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #6a9955;">// Workflow</code><br>
-            <code style="color: #569cd6;">workflow</code> {<br>
-            <code>    sayHello()</code><br>
-            <code>}</code>
-          </div>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #6a9955;"># Run the workflow</code><br>
-            <code style="color: #4ec9b0;">$ nextflow run hello.nf</code>
-          </div>
-        </div>
-
-        <h2>Cholera Analysis Pipeline</h2>
-
-        <div class="step-box">
-          <h3>Complete Analysis Workflow</h3>
-          <p>Create <code>cholera_pipeline.nf</code>:</p>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0; max-height: 600px; overflow-y: auto;">
-            <code style="color: #569cd6;">#!/usr/bin/env nextflow</code><br>
-            <code style="color: #569cd6;">nextflow.enable.dsl=2</code><br><br>
-            <code style="color: #6a9955;">// Parameters</code><br>
-            <code style="color: #569cd6;">params</code>.reads = <code style="color: #ce9178;">"data/*_{1,2}.fastq.gz"</code><br>
-            <code style="color: #569cd6;">params</code>.outdir = <code style="color: #ce9178;">"results"</code><br><br>
-            <code style="color: #6a9955;">// Quality Control Process</code><br>
-            <code style="color: #569cd6;">process</code> <code style="color: #dcdea4;">FASTQC</code> {<br>
-            <code>    container <code style="color: #ce9178;">'biocontainers/fastqc:v0.11.9_cv8'</code></code><br>
-            <code>    publishDir <code style="color: #ce9178;">"${params.outdir}/qc"</code>, mode: <code style="color: #ce9178;">'copy'</code></code><br><br>
-            <code>    input:</code><br>
-            <code>    tuple val(sample_id), path(reads)</code><br><br>
-            <code>    output:</code><br>
-            <code>    path <code style="color: #ce9178;">"*.html"</code></code><br>
-            <code>    path <code style="color: #ce9178;">"*.zip"</code></code><br><br>
-            <code>    script:</code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>    <code style="color: #ce9178;">fastqc ${reads}</code></code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #6a9955;">// Trimming Process</code><br>
-            <code style="color: #569cd6;">process</code> <code style="color: #dcdea4;">TRIMMOMATIC</code> {<br>
-            <code>    container <code style="color: #ce9178;">'biocontainers/trimmomatic:0.39'</code></code><br><br>
-            <code>    input:</code><br>
-            <code>    tuple val(sample_id), path(reads)</code><br><br>
-            <code>    output:</code><br>
-            <code>    tuple val(sample_id), path(<code style="color: #ce9178;">"*_paired_*.fastq.gz"</code>)</code><br><br>
-            <code>    script:</code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>    <code style="color: #ce9178;">trimmomatic PE ${reads[0]} ${reads[1]} \\</code></code><br>
-            <code>    <code style="color: #ce9178;">      ${sample_id}_paired_1.fastq.gz ${sample_id}_unpaired_1.fastq.gz \\</code></code><br>
-            <code>    <code style="color: #ce9178;">      ${sample_id}_paired_2.fastq.gz ${sample_id}_unpaired_2.fastq.gz \\</code></code><br>
-            <code>    <code style="color: #ce9178;">      LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</code></code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #6a9955;">// Assembly Process</code><br>
-            <code style="color: #569cd6;">process</code> <code style="color: #dcdea4;">SPADES</code> {<br>
-            <code>    container <code style="color: #ce9178;">'quay.io/biocontainers/spades:3.15.5'</code></code><br>
-            <code>    publishDir <code style="color: #ce9178;">"${params.outdir}/assembly"</code>, mode: <code style="color: #ce9178;">'copy'</code></code><br><br>
-            <code>    input:</code><br>
-            <code>    tuple val(sample_id), path(reads)</code><br><br>
-            <code>    output:</code><br>
-            <code>    tuple val(sample_id), path(<code style="color: #ce9178;">"${sample_id}/contigs.fasta"</code>)</code><br><br>
-            <code>    script:</code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>    <code style="color: #ce9178;">spades.py -1 ${reads[0]} -2 ${reads[1]} -o ${sample_id} --careful</code></code><br>
-            <code>    <code style="color: #ce9178;">"""</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #6a9955;">// Main Workflow</code><br>
-            <code style="color: #569cd6;">workflow</code> {<br>
-            <code>    reads_ch = Channel.fromFilePairs(params.reads)</code><br>
-            <code>    FASTQC(reads_ch)</code><br>
-            <code>    trimmed = TRIMMOMATIC(reads_ch)</code><br>
-            <code>    SPADES(trimmed)</code><br>
-            <code>}</code>
-          </div>
-        </div>
-
-        <div class="step-box">
-          <h3>Run the Pipeline</h3>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #6a9955;"># Run with Docker</code><br>
-            <code style="color: #4ec9b0;">$ nextflow run cholera_pipeline.nf -with-docker</code><br><br>
-            <code style="color: #6a9955;"># Resume from where it stopped</code><br>
-            <code style="color: #4ec9b0;">$ nextflow run cholera_pipeline.nf -resume</code><br><br>
-            <code style="color: #6a9955;"># Generate execution report</code><br>
-            <code style="color: #4ec9b0;">$ nextflow run cholera_pipeline.nf -with-report report.html</code>
-          </div>
-        </div>
-
-        <h2>Configuration File</h2>
-
-        <div class="step-box">
-          <h3>nextflow.config</h3>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #569cd6;">params</code> {<br>
-            <code>    reads = <code style="color: #ce9178;">"data/*_{1,2}.fastq.gz"</code></code><br>
-            <code>    outdir = <code style="color: #ce9178;">"results"</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #569cd6;">process</code> {<br>
-            <code>    cpus = 4</code><br>
-            <code>    memory = <code style="color: #ce9178;">'8 GB'</code></code><br>
-            <code>}</code><br><br>
-            <code style="color: #569cd6;">docker</code> {<br>
-            <code>    enabled = true</code><br>
-            <code>}</code>
-          </div>
-        </div>
-
-        <h2>Practical Exercise</h2>
-
-        <div class="note-box">
-          <p><strong>Exercise: Create Your First Pipeline</strong></p>
-          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
-            <code style="color: #6a9955;"># 1. Create a simple QC pipeline</code><br>
-            <code style="color: #4ec9b0;">$ nano qc_pipeline.nf</code><br><br>
-            <code style="color: #6a9955;"># 2. Add FASTQC process</code><br>
-            <code style="color: #6a9955;"># 3. Run on cholera samples</code><br>
-            <code style="color: #4ec9b0;">$ nextflow run qc_pipeline.nf --reads 'data/*_{1,2}.fastq.gz'</code>
-          </div>
-        </div>
-
-        <h2>Additional Resources</h2>
-        <ul class="resource-list">
-          <li><a href="https://www.nextflow.io/docs/latest/index.html" target="_blank">Nextflow Documentation</a></li>
-          <li><a href="https://nf-co.re/" target="_blank">nf-core Pipelines</a></li>
-          <li><a href="https://training.nextflow.io/" target="_blank">Nextflow Training</a></li>
-        </ul>
       </div>
 
-      <div class="module-nav">
-        <a href="containers.html">← Previous: Containers</a>
-        <a href="r-programming.html">Next: R Programming →</a>
+      <h2>Basic R Commands</h2>
+      <div class="step-box">
+        <h3>Working with Variables</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code>x <- 10</code><br>
+          <code>y <- 5</code><br>
+          <code>sum <- x + y</code><br>
+          <code>print(sum)</code>
+        </div>
       </div>
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <p>Built using Course in a Box, a project of P2PU.</p>
-        <p>Unless otherwise noted, all materials are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
-      </div>
-    </footer>
-    <script type="module" src="src/main.ts"></script>
-  </body>
 
+      <div class="step-box">
+        <h3>Vectors and Data Frames</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code># Create a vector</code><br>
+          <code>genes <- c("ctxA", "tcpA", "toxR")</code><br><br>
+          <code># Create a data frame</code><br>
+          <code>data <- data.frame(Sample=c("S1","S2","S3"), Coverage=c(45,60,52))</code><br>
+          <code>print(data)</code>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <h3>Basic Plots</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code># Create a scatter plot</code><br>
+          <code>x <- 1:10</code><br>
+          <code>y <- x^2</code><br>
+          <code>plot(x, y, main="Simple Scatter Plot", xlab="X Values", ylab="Y = X^2", col="blue")</code>
+        </div>
+      </div>
+
+      <h2>Working with Packages</h2>
+      <div class="step-box">
+        <h3>Installing and Loading Packages</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code># Install a package</code><br>
+          <code>install.packages("tidyverse")</code><br><br>
+          <code># Load the package</code><br>
+          <code>library(tidyverse)</code>
+        </div>
+      </div>
+
+      <h2>Example: Analyzing Cholera Data</h2>
+      <div class="step-box">
+        <h3>Sample Script</h3>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; overflow-x:auto;">
+          <code># Read sample metadata</code><br>
+          <code>cholera_data <- read.csv("cholera_samples.csv")</code><br><br>
+          <code># Summarize</code><br>
+          <code>summary(cholera_data)</code><br><br>
+          <code># Plot coverage distribution</code><br>
+          <code>hist(cholera_data$Coverage, main="Coverage Distribution", col="lightblue")</code><br><br>
+          <code># Filter low-coverage samples</code><br>
+          <code>filtered <- subset(cholera_data, Coverage > 30)</code><br>
+          <code>print(filtered)</code>
+        </div>
+      </div>
+
+      <h2>Practical Exercise</h2>
+      <div class="note-box">
+        <p><strong>Exercise:</strong> Load a CSV file and generate a summary plot.</p>
+        <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace;">
+          <code># 1. Load your dataset</code><br>
+          <code>data <- read.csv("your_data.csv")</code><br><br>
+          <code># 2. View first few rows</code><br>
+          <code>head(data)</code><br><br>
+          <code># 3. Generate a boxplot</code><br>
+          <code>boxplot(data$Expression ~ data$Condition, main="Expression by Condition")</code>
+        </div>
+      </div>
+
+      <h2>Additional Resources</h2>
+      <ul class="resource-list">
+        <li><a href="https://cran.r-project.org/manuals.html" target="_blank">R Documentation</a></li>
+        <li><a href="https://www.tidyverse.org/" target="_blank">Tidyverse</a></li>
+        <li><a href="https://www.bioconductor.org/" target="_blank">Bioconductor for Bioinformatics</a></li>
+        <li><a href="https://rstudio.com/resources/cheatsheets/" target="_blank">RStudio Cheatsheets</a></li>
+        <li><a href="https://datacarpentry.org/R-genomics/" target="_blank">Data Carpentry: R for Genomics</a></li>
+      </ul>
+    </div>
+
+    <div class="module-nav">
+      <a href="nextflow.html">← Previous: Nextflow</a>
+      <a href="galaxy-intro.html">Next: Galaxy Introduction →</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>Unless otherwise noted, all materials are licensed under a 
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
 </html>
