@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/galaxy-collections.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:23 GMT -->
+<head>
+    <script type="module" src="%40vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Making Collections in Galaxy - Cholera Analysis Course</title>
+    <link rel="stylesheet" href="src/style.css" />
+  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Cholera Sample Analysis with Galaxy</h1>
+        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index-2.html">Home</a></li>
+          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+          <li><a href="conda.html">Package Management</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="nextflow.html">Nextflow</a></li>
+          <li><a href="r-programming.html">R Programming</a></li>
+          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+          <li><a href="galaxy-collections.html" class="active">Galaxy Collections</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="module-nav">
+        <a href="galaxy-intro.html">← Previous: Galaxy Introduction</a>
+        <a href="workflows.html">Next: Workflows →</a>
+      </div>
+
+      <div class="content-box">
+        <h1>Making Collections in Galaxy</h1>
+
+        <h2>Introduction</h2>
+        <p>When doing Bioinformatics analyses, it's a more common practice to process multiple samples at once. This often also requires the grouping of these samples.</p>
+
+        <p>For example, paired short reads, such as Illumina reads, are usually grouped. However, grouping may extend to any specific way in which one wishes to classify one's data.</p>
+
+        <p>Similarly, we may want to compare a set of drug resistant strains to drug sensitive strains. Similarly, we may want to compare a dataset containing samples from Namibia to those of Cape Verde, etc. We would call each of these grouping of samples, a dataset.</p>
+
+        <p>Galaxy allows us to do this in one step. That is, we can make sure a forward and reverse read belonging to the same sample is paired. We can then group these paired reads into a dataset or collection of paired reads, so that we can run analyses on all of our samples at once, rather than doing them one by one.</p>
+
+        <h2>Let's see this in action</h2>
+
+        <div class="note-box">
+          <p><strong>NOTE:</strong> The samples for this lesson can be found at <a href="https://zenodo.org/records/10760705" target="_blank">Zenodo</a></p>
+        </div>
+
+        <p>You have two options:</p>
+        <ol>
+          <li>You may click on <a href="https://zenodo.org/records/10760705/files/all-samples.zip" target="_blank">this url</a> to download the zip file with all the files, and then upload the files to Galaxy from your local machine.</li>
+          <li>Or you may paste the links below, which correspond to the individual samples, into Galaxy.</li>
+        </ol>
+
+        <p><strong>Note:</strong> However, you will need to change the file names individually in Galaxy, if you use the second method.</p>
+
+        <h3>Sample Data Links</h3>
+        <ul class="data-links">
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446250_1.fastq.gz?download=1" target="_blank">SRR24446250_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446250_2.fastq.gz?download=1" target="_blank">SRR24446250_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446252_1.fastq.gz?download=1" target="_blank">SRR24446252_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446252_2.fastq.gz?download=1" target="_blank">SRR24446252_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446254_1.fastq.gz?download=1" target="_blank">SRR24446254_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446254_2.fastq.gz?download=1" target="_blank">SRR24446254_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446261_1.fastq.gz?download=1" target="_blank">SRR24446261_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446261_2.fastq.gz?download=1" target="_blank">SRR24446261_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446273_1.fastq.gz?download=1" target="_blank">SRR24446273_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446273_2.fastq.gz?download=1" target="_blank">SRR24446273_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446275_1.fastq.gz?download=1" target="_blank">SRR24446275_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446275_2.fastq.gz?download=1" target="_blank">SRR24446275_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446288_1.fastq.gz?download=1" target="_blank">SRR24446288_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446288_2.fastq.gz?download=1" target="_blank">SRR24446288_2.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446302_1.fastq.gz?download=1" target="_blank">SRR24446302_1.fastq.gz</a></li>
+          <li><a href="https://zenodo.org/records/10760705/files/SRR24446302_2.fastq.gz?download=1" target="_blank">SRR24446302_2.fastq.gz</a></li>
+        </ul>
+
+        <h2>Step-by-Step Instructions</h2>
+
+        <div class="step-box">
+          <h3>Step 1: Import the selection of cholera samples</h3>
+          <p>Upload the data files to Galaxy using one of the methods described above.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 2: Rename your History to "Cholera paired collection"</h3>
+          <img src="../training.galaxyproject.org/training-material/news/images/galaxy-data-upload.png" alt="Galaxy samples in history" class="tutorial-image">
+          <p class="image-caption">Your imported samples should appear in the Galaxy history panel</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 3: Uncheck the selection box</h3>
+          <p>Just above your imported samples, you will see a small blue box with a checked sign ✓.</p>
+          <p><strong>Uncheck that box.</strong> This will allow you to individually select each sample.</p>
+          <div style="background: #f0f0f0; padding: 2rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
+            <p style="color: #666;">Galaxy History Panel: Uncheck the selection box to select individual samples</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 4: Click on the "Select All" button on the right</h3>
+          <p>This will select all your imported samples at once.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 5: Click the drop-down arrow in the box that says "All 10 selected"</h3>
+          <p>A menu will appear with several options for working with your selected datasets.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 6: Choose the option that says "Build List of Dataset Pairs"</h3>
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 8px; text-align: center; margin: 1rem 0; color: white;">
+            <p style="font-size: 1.2rem; margin: 0;">Build List of Dataset Pairs</p>
+            <p style="margin: 0.5rem 0 0 0; opacity: 0.9; font-size: 0.9rem;">Galaxy will analyze file names to automatically pair forward and reverse reads</p>
+          </div>
+          <p>This new box gives you the ability to pair your samples, by looking for any common pattern in one group, that distinguished them from another group. For example, what pattern do you see in the file name of the forward reads, that is not in the reverse reads.</p>
+          <p>In our case, the algorithm predicted that the forward reads will all have a <strong>_1</strong> in their name and the reverse reads all have an <strong>_2</strong>. So, it already paired our forward and reverse reads for us based on this pattern.</p>
+        </div>
+
+        <div class="note-box">
+          <p><strong>Understanding the Pairing Pattern:</strong> But we can look at the view we would get if the samples were named differently, and the algorithm may not have gotten it right. For example, forward and reverse reads are sometimes labelled with R1 and R2 to distinguish read pairs.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 7: Click on "Unpair all"</h3>
+          <p>This button is just above the green coloured samples. Click it to see how manual pairing works.</p>
+          <p>Your box should now show all samples unpaired. Thus, if your samples were named differently, and Galaxy couldn't successfully pair it, the samples will all appear on top (in the white space above) and you would have to figure out a pattern in your sample names to allow the correct classification. E.g. R1 in the box on the top left and R2 in the box on the top right. In the worse case scenario, you may need to rename all of your samples to enforce a common pattern.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 8: Manually pair the datasets</h3>
+          <p>You can manually pair the set of reads by clicking the white button in the middle that says <strong>"Pair these datasets"</strong>, and it will move them all to the bottom as they were before.</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 9: Name your collection and create it</h3>
+          <p><strong>BEFORE clicking on "Create Collection" at the bottom</strong>, give your dataset a name. For example "Cholera paired reads", and click on "Create Collection"</p>
+          <div style="background: #e7f3ff; border: 2px dashed #2196F3; padding: 2rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
+            <p style="color: #1976D2; font-weight: bold; font-size: 1.1rem; margin: 0;">Collection Name: "Cholera paired reads"</p>
+            <p style="color: #666; margin: 0.5rem 0 0 0;">This will group all your paired samples for efficient processing</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 10: Verify your collection</h3>
+          <p>You now have all your samples grouped. You can deselect the collection by unchecking the box, you originally selected at step 3.</p>
+        </div>
+
+        <div class="note-box">
+          <p><strong>Additional Resources:</strong> Below is a tutorial called "Using dataset collections" that you can follow if you ever need to revisit this topic. Visit the <a href="https://training.galaxyproject.org/" target="_blank">Galaxy Training Network</a> for more tutorials.</p>
+        </div>
+
+        <h2>Summary</h2>
+        <p>You've successfully created a paired collection in Galaxy! This collection can now be used as input for tools that support collections, allowing you to process all your samples at once instead of running the same tool multiple times.</p>
+
+        <p>This approach is especially powerful for:</p>
+        <ul>
+          <li>Processing multiple Illumina paired-end samples</li>
+          <li>Running the same workflow on multiple datasets</li>
+          <li>Organizing samples by experimental conditions</li>
+          <li>Comparing different groups of samples</li>
+        </ul>
+      </div>
+
+      <div class="module-nav">
+        <a href="galaxy-intro.html">← Previous: Galaxy Introduction</a>
+        <a href="workflows.html">Next: Workflows →</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Built using Course in a Box, a project of P2PU.</p>
+        <p>Unless otherwise noted, all the materials on this site are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/galaxy-collections.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:23 GMT -->
+</html>

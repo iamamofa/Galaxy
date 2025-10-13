@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/containers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+<head>
+    <script type="module" src="%40vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Containers - Cholera Analysis Course</title>
+    <link rel="stylesheet" href="src/style.css" />
+  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Cholera Sample Analysis with Galaxy</h1>
+        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
+      </div>
+    </header>
+    <nav class="nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index-2.html">Home</a></li>
+          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+          <li><a href="conda.html">Package Management</a></li>
+          <li><a href="containers.html" class="active">Containers</a></li>
+          <li><a href="nextflow.html">Nextflow</a></li>
+          <li><a href="r-programming.html">R Programming</a></li>
+          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <div class="module-nav">
+        <a href="conda.html">← Previous: Package Management</a>
+        <a href="nextflow.html">Next: Nextflow →</a>
+      </div>
+
+      <div class="content-box">
+        <h1>Containers in Bioinformatics</h1>
+        <h2>Docker and Singularity</h2>
+        <p>Containers package software with all its dependencies, ensuring reproducibility across different computing environments. They're essential for modern bioinformatics workflows.</p>
+
+        <h2>What are Containers?</h2>
+        <ul>
+          <li>Lightweight, standalone packages containing everything needed to run software</li>
+          <li>Include code, runtime, system tools, libraries, and settings</li>
+          <li>Run identically on any system that supports containers</li>
+          <li>More portable than virtual machines, less overhead</li>
+        </ul>
+
+        <h2>Docker Basics</h2>
+
+        <div class="step-box">
+          <h3>Installing Docker</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># On Ubuntu/Debian</code><br>
+            <code style="color: #4ec9b0;">$ curl -fsSL https://get.docker.com -o get-docker.sh</code><br>
+            <code style="color: #4ec9b0;">$ sudo sh get-docker.sh</code><br><br>
+            <code style="color: #6a9955;"># Add user to docker group</code><br>
+            <code style="color: #4ec9b0;">$ sudo usermod -aG docker $USER</code><br><br>
+            <code style="color: #6a9955;"># Test installation</code><br>
+            <code style="color: #4ec9b0;">$ docker run hello-world</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Running Bioinformatics Tools in Docker</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Pull FastQC container from BioContainers</code><br>
+            <code style="color: #4ec9b0;">$ docker pull biocontainers/fastqc:v0.11.9_cv8</code><br><br>
+            <code style="color: #6a9955;"># Run FastQC on your data</code><br>
+            <code style="color: #4ec9b0;">$ docker run -v $(pwd):/data biocontainers/fastqc:v0.11.9_cv8 \</code><br>
+            <code style="color: #4ec9b0;">    fastqc /data/sample.fastq</code>
+          </div>
+          <p><strong>-v flag</strong>: Mounts your current directory to /data inside container</p>
+        </div>
+
+        <div class="step-box">
+          <h3>SPAdes Genome Assembly Example</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Pull SPAdes container</code><br>
+            <code style="color: #4ec9b0;">$ docker pull quay.io/biocontainers/spades:3.15.5--h95f258a_1</code><br><br>
+            <code style="color: #6a9955;"># Run assembly</code><br>
+            <code style="color: #4ec9b0;">$ docker run -v $(pwd):/data quay.io/biocontainers/spades:3.15.5--h95f258a_1 \</code><br>
+            <code style="color: #4ec9b0;">    spades.py -1 /data/R1.fastq -2 /data/R2.fastq -o /data/assembly</code>
+          </div>
+        </div>
+
+        <h2>Creating Custom Docker Images</h2>
+
+        <div class="step-box">
+          <h3>Example Dockerfile</h3>
+          <p>Create a Dockerfile for your custom analysis pipeline:</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #569cd6;">FROM</code> <code style="color: #ce9178;">ubuntu:20.04</code><br><br>
+            <code style="color: #6a9955;"># Install dependencies</code><br>
+            <code style="color: #569cd6;">RUN</code> apt-get update && apt-get install -y \<br>
+            <code>    python3 python3-pip wget \</code><br>
+            <code>    && rm -rf /var/lib/apt/lists/*</code><br><br>
+            <code style="color: #6a9955;"># Install bioinformatics tools</code><br>
+            <code style="color: #569cd6;">RUN</code> pip3 install biopython numpy pandas<br><br>
+            <code style="color: #6a9955;"># Set working directory</code><br>
+            <code style="color: #569cd6;">WORKDIR</code> /analysis<br><br>
+            <code style="color: #6a9955;"># Copy analysis scripts</code><br>
+            <code style="color: #569cd6;">COPY</code> scripts/ /analysis/scripts/<br><br>
+            <code style="color: #569cd6;">CMD</code> [<code style="color: #ce9178;">"/bin/bash"</code>]
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Build and Run Custom Image</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Build image</code><br>
+            <code style="color: #4ec9b0;">$ docker build -t cholera-analysis:v1.0 .</code><br><br>
+            <code style="color: #6a9955;"># Run container</code><br>
+            <code style="color: #4ec9b0;">$ docker run -it -v $(pwd):/data cholera-analysis:v1.0</code>
+          </div>
+        </div>
+
+        <h2>Singularity for HPC</h2>
+        <p>Singularity is preferred on HPC systems as it doesn't require root privileges and integrates better with scheduling systems.</p>
+
+        <div class="step-box">
+          <h3>Converting Docker to Singularity</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Build Singularity image from Docker</code><br>
+            <code style="color: #4ec9b0;">$ singularity build fastqc.sif docker://biocontainers/fastqc:v0.11.9_cv8</code><br><br>
+            <code style="color: #6a9955;"># Run with Singularity</code><br>
+            <code style="color: #4ec9b0;">$ singularity exec fastqc.sif fastqc sample.fastq</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Bind Mounting in Singularity</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ singularity exec --bind /scratch:/data fastqc.sif \</code><br>
+            <code style="color: #4ec9b0;">    fastqc /data/sample.fastq</code>
+          </div>
+        </div>
+
+        <h2>Practical Exercise</h2>
+
+        <div class="note-box">
+          <p><strong>Exercise: Run Cholera Analysis in Container</strong></p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># 1. Pull FastQC container</code><br>
+            <code style="color: #4ec9b0;">$ docker pull biocontainers/fastqc:v0.11.9_cv8</code><br><br>
+            <code style="color: #6a9955;"># 2. Create test directory</code><br>
+            <code style="color: #4ec9b0;">$ mkdir -p ~/cholera_test</code><br>
+            <code style="color: #4ec9b0;">$ cd ~/cholera_test</code><br><br>
+            <code style="color: #6a9955;"># 3. Run quality control</code><br>
+            <code style="color: #4ec9b0;">$ docker run -v $(pwd):/data biocontainers/fastqc:v0.11.9_cv8 \</code><br>
+            <code style="color: #4ec9b0;">    fastqc /data/*.fastq</code>
+          </div>
+        </div>
+
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Use official biocontainers from trusted repositories</li>
+          <li>Pin specific versions for reproducibility</li>
+          <li>Document your container versions in your methods</li>
+          <li>Use .dockerignore to exclude unnecessary files</li>
+          <li>Keep containers small - use minimal base images</li>
+        </ul>
+
+        <h2>Container Registries for Bioinformatics</h2>
+        <ul class="resource-list">
+          <li><a href="https://biocontainers.pro/" target="_blank">BioContainers Registry</a></li>
+          <li><a href="https://quay.io/organization/biocontainers" target="_blank">Quay.io BioContainers</a></li>
+          <li><a href="https://hub.docker.com/" target="_blank">Docker Hub</a></li>
+          <li><a href="https://cloud.sylabs.io/library" target="_blank">Singularity Library</a></li>
+        </ul>
+      </div>
+
+      <div class="module-nav">
+        <a href="conda.html">← Previous: Package Management</a>
+        <a href="nextflow.html">Next: Nextflow →</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>Built using Course in a Box, a project of P2PU.</p>
+        <p>Unless otherwise noted, all materials are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+      </div>
+    </footer>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/containers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+</html>

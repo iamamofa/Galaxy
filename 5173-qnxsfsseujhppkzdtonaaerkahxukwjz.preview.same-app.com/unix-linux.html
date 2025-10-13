@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/unix-linux.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+<head>
+    <script type="module" src="%40vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unix/Linux Introduction - Cholera Analysis Course</title>
+    <link rel="stylesheet" href="src/style.css" />
+  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Cholera Sample Analysis with Galaxy</h1>
+        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
+      </div>
+    </header>
+    <nav class="nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index-2.html">Home</a></li>
+          <li><a href="unix-linux.html" class="active">Unix/Linux Introduction</a></li>
+          <li><a href="conda.html">Package Management</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="nextflow.html">Nextflow</a></li>
+          <li><a href="r-programming.html">R Programming</a></li>
+          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <div class="module-nav">
+        <span style="opacity: 0.5;">First Module</span>
+        <a href="conda.html">Next: Package Management →</a>
+      </div>
+
+      <div class="content-box">
+        <h1>Unix/Linux Introduction</h1>
+        <h2>Essential Commands for Bioinformatics</h2>
+        <p>Understanding Unix/Linux command line is fundamental for bioinformatics work. The command line provides powerful tools for data manipulation, file management, and running bioinformatics software.</p>
+
+        <h2>Why Unix/Linux for Bioinformatics?</h2>
+        <ul>
+          <li>Most bioinformatics tools are designed for Unix/Linux environments</li>
+          <li>Efficient handling of large genomic datasets</li>
+          <li>Automation through scripting</li>
+          <li>Remote server access for high-performance computing</li>
+        </ul>
+
+        <h2>Basic Navigation Commands</h2>
+
+        <div class="step-box">
+          <h3>pwd - Print Working Directory</h3>
+          <p>Shows your current location in the file system</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ pwd</code><br>
+            <code style="color: #ce9178;">/home/user/cholera_analysis</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>ls - List Directory Contents</h3>
+          <p>Display files and directories</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ ls -lh</code><br>
+            <code style="color: #ce9178;">drwxr-xr-x  2 user  staff   64B Oct 13 08:00 raw_data</code><br>
+            <code style="color: #ce9178;">drwxr-xr-x  2 user  staff   64B Oct 13 08:00 results</code><br>
+            <code style="color: #ce9178;">-rw-r--r--  1 user  staff  1.5G Oct 13 08:00 SRR24446250_1.fastq.gz</code>
+          </div>
+          <p><strong>Useful flags:</strong></p>
+          <ul>
+            <li><code>-l</code>: Long format with details</li>
+            <li><code>-h</code>: Human-readable file sizes</li>
+            <li><code>-a</code>: Show hidden files</li>
+            <li><code>-t</code>: Sort by modification time</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h3>cd - Change Directory</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ cd raw_data</code><br>
+            <code style="color: #4ec9b0;">$ cd ..</code> <span style="color: #6a9955;"># Go up one directory</span><br>
+            <code style="color: #4ec9b0;">$ cd ~</code> <span style="color: #6a9955;"># Go to home directory</span><br>
+            <code style="color: #4ec9b0;">$ cd -</code> <span style="color: #6a9955;"># Go to previous directory</span>
+          </div>
+        </div>
+
+        <h2>File Manipulation Commands</h2>
+
+        <div class="step-box">
+          <h3>mkdir - Create Directories</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ mkdir -p cholera_project/raw_data</code><br>
+            <code style="color: #4ec9b0;">$ mkdir -p cholera_project/results/{assembly,annotation,qc}</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>cp & mv - Copy and Move Files</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ cp sample.fastq backup/sample.fastq</code><br>
+            <code style="color: #4ec9b0;">$ cp -r raw_data/ backup/</code> <span style="color: #6a9955;"># Copy directory recursively</span><br>
+            <code style="color: #4ec9b0;">$ mv old_name.txt new_name.txt</code> <span style="color: #6a9955;"># Rename</span>
+          </div>
+        </div>
+
+        <h2>Working with Files</h2>
+
+        <div class="step-box">
+          <h3>cat, head, tail - View File Contents</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ head -n 10 sample.fastq</code> <span style="color: #6a9955;"># First 10 lines</span><br>
+            <code style="color: #4ec9b0;">$ tail -n 20 logfile.txt</code> <span style="color: #6a9955;"># Last 20 lines</span><br>
+            <code style="color: #4ec9b0;">$ cat file1.txt file2.txt > combined.txt</code> <span style="color: #6a9955;"># Concatenate files</span>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>less & more - Page Through Files</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ less large_file.txt</code>
+          </div>
+          <p><strong>Navigation in less:</strong></p>
+          <ul>
+            <li>Space: Next page</li>
+            <li>b: Previous page</li>
+            <li>/pattern: Search forward</li>
+            <li>q: Quit</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h3>grep - Search Text Patterns</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ grep "ATCG" sequences.fasta</code><br>
+            <code style="color: #4ec9b0;">$ grep -c "ATCG" sequences.fasta</code>
+          </div>
+        </div>
+
+        <h2>Bioinformatics-Specific Commands</h2>
+
+        <div class="step-box">
+          <h3>wc - Count Lines, Words, Characters</h3>
+          <p>Useful for counting sequences in FASTA/FASTQ files</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ wc -l sample.fastq</code> <span style="color: #6a9955;"># Count lines</span><br>
+            <code style="color: #ce9178;">8000000 sample.fastq</code><br>
+            <code style="color: #6a9955;"># FASTQ has 4 lines per read, so: 8000000 / 4 = 2,000,000 reads</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Pipes and Redirection</h3>
+          <p>Chain commands together for powerful data processing</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ grep ">" sequences.fasta | wc -l</code> <span style="color: #6a9955;"># Count sequences</span><br>
+            <code style="color: #4ec9b0;">$ cat *.fastq > all_reads.fastq</code> <span style="color: #6a9955;"># Combine files</span><br>
+            <code style="color: #4ec9b0;">$ zcat sample.fastq.gz | head -n 4</code> <span style="color: #6a9955;"># View compressed files</span>
+          </div>
+        </div>
+
+        <h2>Practical Exercises</h2>
+
+        <div class="note-box">
+          <p><strong>Exercise 1: Setting Up Your Workspace</strong></p>
+          <p>Create a directory structure for a cholera analysis project:</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ mkdir -p cholera_project/{raw_data,qc_reports,trimmed_data,assembly,annotation}</code><br>
+            <code style="color: #4ec9b0;">$ cd cholera_project</code><br>
+            <code style="color: #4ec9b0;">$ ls -l</code>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <p><strong>Exercise 2: Working with FASTQ Files</strong></p>
+          <p>Download and inspect a sample FASTQ file:</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># View first read in FASTQ file</code><br>
+            <code style="color: #4ec9b0;">$ head -n 4 sample.fastq</code><br><br>
+            <code style="color: #6a9955;"># Count total number of reads</code><br>
+            <code style="color: #4ec9b0;">$ echo $(cat sample.fastq | wc -l)/4 | bc</code><br><br>
+            <code style="color: #6a9955;"># Search for a specific sequence pattern</code><br>
+            <code style="color: #4ec9b0;">$ grep -B 1 -A 2 "ATCGATCG" sample.fastq</code>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <p><strong>Exercise 3: File Compression</strong></p>
+          <p>Genomic files are large - learn to compress them:</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Compress a file</code><br>
+            <code style="color: #4ec9b0;">$ gzip large_file.fastq</code><br><br>
+            <code style="color: #6a9955;"># Decompress</code><br>
+            <code style="color: #4ec9b0;">$ gunzip large_file.fastq.gz</code><br><br>
+            <code style="color: #6a9955;"># View compressed file without decompressing</code><br>
+            <code style="color: #4ec9b0;">$ zcat file.fastq.gz | head</code>
+          </div>
+        </div>
+
+        <h2>Useful Keyboard Shortcuts</h2>
+        <ul>
+          <li><code>Tab</code>: Auto-complete filenames and commands</li>
+          <li><code>Ctrl + C</code>: Stop running command</li>
+          <li><code>Ctrl + Z</code>: Suspend current process</li>
+          <li><code>Ctrl + R</code>: Search command history</li>
+          <li><code>Ctrl + A</code>: Move to beginning of line</li>
+          <li><code>Ctrl + E</code>: Move to end of line</li>
+          <li><code>↑/↓ arrows</code>: Navigate command history</li>
+        </ul>
+
+        <h2>Additional Resources</h2>
+        <ul class="resource-list">
+          <li><a href="https://swcarpentry.github.io/shell-novice/" target="_blank">Software Carpentry: The Unix Shell</a></li>
+          <li><a href="https://www.gnu.org/software/bash/manual/" target="_blank">Bash Reference Manual</a></li>
+          <li><a href="https://datacarpentry.org/shell-genomics/" target="_blank">Data Carpentry: Shell Genomics</a></li>
+        </ul>
+      </div>
+
+      <div class="module-nav">
+        <span style="opacity: 0.5;">First Module</span>
+        <a href="conda.html">Next: Package Management →</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>Built using Course in a Box, a project of P2PU.</p>
+        <p>Unless otherwise noted, all materials are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+      </div>
+    </footer>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/unix-linux.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+</html>

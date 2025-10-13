@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/cholera-case-study.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:24 GMT -->
+<head>
+    <script type="module" src="%40vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cholera Case Study - Cholera Analysis Course</title>
+    <link rel="stylesheet" href="src/style.css" />
+  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Cholera Sample Analysis with Galaxy</h1>
+        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index-2.html">Home</a></li>
+          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+          <li><a href="conda.html">Package Management</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="nextflow.html">Nextflow</a></li>
+          <li><a href="r-programming.html">R Programming</a></li>
+          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="cholera-case-study.html" class="active">Cholera Case Study</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="module-nav">
+        <a href="workflows.html">← Previous: Workflows</a>
+        <span style="opacity: 0.5;">Final Module</span>
+      </div>
+
+      <div class="content-box">
+        <h1>Cholera Case Study</h1>
+
+        <h2>Introduction</h2>
+        <p>In this final module, you'll apply everything you've learned to analyze real Cholera samples. We'll use Illumina sequencing data from actual outbreak samples to perform a complete genomic analysis.</p>
+
+        <div class="hero-image-container">
+          <img src="../upload.wikimedia.org/wikipedia/commons/9/9d/Cholera_bacteria_SEM.jpg" alt="Cholera bacteria" class="tutorial-image" style="max-width: 600px;">
+          <p class="image-caption">Vibrio cholerae - the causative agent of cholera</p>
+        </div>
+
+        <h2>About Vibrio cholerae</h2>
+        <p>Vibrio cholerae is a Gram-negative bacterium that causes cholera, a severe diarrheal disease. Understanding its genome helps us:</p>
+        <ul>
+          <li>Track outbreak sources and transmission</li>
+          <li>Identify antibiotic resistance genes</li>
+          <li>Understand virulence factors</li>
+          <li>Develop better prevention strategies</li>
+        </ul>
+
+        <h2>Analysis Workflow</h2>
+
+        <div class="step-box">
+          <h3>Step 1: Quality Control</h3>
+          <p>Use FastQC to assess the quality of your Illumina reads. Look for:</p>
+          <ul>
+            <li>Per base sequence quality</li>
+            <li>Adapter contamination</li>
+            <li>Over-represented sequences</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 2: Read Trimming</h3>
+          <p>Use Trimmomatic or fastp to remove low-quality bases and adapters</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 3: Genome Assembly</h3>
+          <p>Assemble the reads using SPAdes or MEGAHIT to reconstruct the genome</p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 4: Assembly Quality Assessment</h3>
+          <p>Use QUAST to evaluate assembly quality:
+          <ul>
+            <li>Number of contigs</li>
+            <li>N50 value</li>
+            <li>Total assembly length</li>
+          </ul>
+          </p>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 5: Genome Annotation</h3>
+          <p>Annotate genes using Prokka to identify:</p>
+          <ul>
+            <li>Protein-coding genes</li>
+            <li>RNA genes</li>
+            <li>Functional annotations</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h3>Step 6: Comparative Analysis</h3>
+          <p>Compare your samples to identify:</p>
+          <ul>
+            <li>SNPs and variants</li>
+            <li>Antibiotic resistance genes</li>
+            <li>Virulence factors</li>
+            <li>Phylogenetic relationships</li>
+          </ul>
+        </div>
+
+        <h2>Expected Outcomes</h2>
+        <p>By the end of this case study, you will have:</p>
+        <ul>
+          <li>High-quality assembled genomes</li>
+          <li>Annotated gene lists</li>
+          <li>Identification of key virulence and resistance genes</li>
+          <li>Phylogenetic tree showing relationships between samples</li>
+          <li>A complete Galaxy workflow that can be reused</li>
+        </ul>
+
+        <div class="note-box">
+          <p><strong>Dataset:</strong> Remember that all samples are available at <a href="https://zenodo.org/records/10760705" target="_blank">Zenodo</a>. Make sure you've created your paired collection as described in the Galaxy Collections module before proceeding with the analysis.</p>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="resource-list">
+          <li><a href="https://training.galaxyproject.org/" target="_blank">Galaxy Training Materials</a></li>
+          <li><a href="https://usegalaxy.org/" target="_blank">Launch Galaxy</a></li>
+          <li><a href="https://zenodo.org/records/10760705" target="_blank">Download Dataset</a></li>
+        </ul>
+      </div>
+
+      <div class="module-nav">
+        <a href="workflows.html">← Previous: Workflows</a>
+        <span style="opacity: 0.5;">Final Module</span>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Built using Course in a Box, a project of P2PU.</p>
+        <p>Unless otherwise noted, all the materials on this site are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/cholera-case-study.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:24 GMT -->
+</html>

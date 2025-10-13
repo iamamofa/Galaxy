@@ -1,0 +1,6 @@
+const app = document.querySelector("#app");
+if (app) {
+  app.innerHTML = "<div></div>";
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4udHMiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgYXBwID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcjxIVE1MRGl2RWxlbWVudD4oXCIjYXBwXCIpO1xuXG5pZiAoYXBwKSB7XG4gIGFwcC5pbm5lckhUTUwgPSBcIjxkaXY+PC9kaXY+XCI7XG59XG4iXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sTUFBTSxTQUFTLGNBQThCLE1BQU07QUFFekQsSUFBSSxLQUFLO0FBQ1AsTUFBSSxZQUFZO0FBQ2xCOyIsIm5hbWVzIjpbXX0=

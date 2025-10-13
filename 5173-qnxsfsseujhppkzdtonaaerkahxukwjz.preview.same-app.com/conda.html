@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/conda.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+<head>
+    <script type="module" src="%40vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Package Management - Cholera Analysis Course</title>
+    <link rel="stylesheet" href="src/style.css" />
+  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Cholera Sample Analysis with Galaxy</h1>
+        <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
+      </div>
+    </header>
+    <nav class="nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index-2.html">Home</a></li>
+          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+          <li><a href="conda.html" class="active">Package Management</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="nextflow.html">Nextflow</a></li>
+          <li><a href="r-programming.html">R Programming</a></li>
+          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
+          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <div class="module-nav">
+        <a href="unix-linux.html">← Previous: Unix/Linux</a>
+        <a href="containers.html">Next: Containers →</a>
+      </div>
+
+      <div class="content-box">
+        <h1>Package Management with Conda</h1>
+        <h2>Managing Bioinformatics Software</h2>
+        <p>Conda is a powerful package manager that simplifies installing bioinformatics software and managing dependencies. It eliminates the "dependency hell" problem by creating isolated environments.</p>
+
+        <h2>What is Conda?</h2>
+        <ul>
+          <li>Cross-platform package manager (works on Linux, macOS, Windows)</li>
+          <li>Creates isolated environments to avoid conflicts</li>
+          <li>Manages both Python and non-Python packages</li>
+          <li>Bioconda channel provides 8000+ bioinformatics packages</li>
+        </ul>
+
+        <h2>Installing Conda</h2>
+
+        <div class="step-box">
+          <h3>Option 1: Miniconda (Recommended)</h3>
+          <p>Lightweight installer with just conda and Python</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Download Miniconda installer</code><br>
+            <code style="color: #4ec9b0;">$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</code><br><br>
+            <code style="color: #6a9955;"># Run installer</code><br>
+            <code style="color: #4ec9b0;">$ bash Miniconda3-latest-Linux-x86_64.sh</code><br><br>
+            <code style="color: #6a9955;"># Initialize conda</code><br>
+            <code style="color: #4ec9b0;">$ conda init bash</code><br>
+            <code style="color: #4ec9b0;">$ source ~/.bashrc</code>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <h3>Configuring Conda Channels</h3>
+          <p>Add bioinformatics-specific channels:</p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #4ec9b0;">$ conda config --add channels defaults</code><br>
+            <code style="color: #4ec9b0;">$ conda config --add channels bioconda</code><br>
+            <code style="color: #4ec9b0;">$ conda config --add channels conda-forge</code><br>
+            <code style="color: #4ec9b0;">$ conda config --set channel_priority strict</code>
+          </div>
+        </div>
+
+        <h2>Creating and Managing Environments</h2>
+
+        <div class="step-box">
+          <h3>Create a New Environment</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Create environment for cholera analysis</code><br>
+            <code style="color: #4ec9b0;">$ conda create -n cholera_analysis python=3.9</code><br><br>
+            <code style="color: #6a9955;"># Activate the environment</code><br>
+            <code style="color: #4ec9b0;">$ conda activate cholera_analysis</code><br>
+            <code style="color: #ce9178;">(cholera_analysis) $</code>
+          </div>
+        </div>
+
+        <h2>Installing Bioinformatics Tools</h2>
+
+        <div class="step-box">
+          <h3>Install Common Tools</h3>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Quality control tool</code><br>
+            <code style="color: #4ec9b0;">$ conda install -c bioconda fastqc</code><br><br>
+            <code style="color: #6a9955;"># Read trimming</code><br>
+            <code style="color: #4ec9b0;">$ conda install -c bioconda trimmomatic</code><br><br>
+            <code style="color: #6a9955;"># Genome assembler</code><br>
+            <code style="color: #4ec9b0;">$ conda install -c bioconda spades</code><br><br>
+            <code style="color: #6a9955;"># Genome annotation</code><br>
+            <code style="color: #4ec9b0;">$ conda install -c bioconda prokka</code>
+          </div>
+        </div>
+
+        <h2>Practical Exercise</h2>
+
+        <div class="note-box">
+          <p><strong>Exercise: Set Up Analysis Environment</strong></p>
+          <div style="background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 5px; font-family: 'Courier New', monospace; margin: 1rem 0;">
+            <code style="color: #6a9955;"># Create environment</code><br>
+            <code style="color: #4ec9b0;">$ conda create -n cholera python=3.9</code><br>
+            <code style="color: #4ec9b0;">$ conda activate cholera</code><br><br>
+            <code style="color: #6a9955;"># Install tools</code><br>
+            <code style="color: #4ec9b0;">$ conda install -c bioconda fastqc spades quast prokka</code><br><br>
+            <code style="color: #6a9955;"># Test installation</code><br>
+            <code style="color: #4ec9b0;">$ fastqc --version</code>
+          </div>
+        </div>
+
+        <h2>Additional Resources</h2>
+        <ul class="resource-list">
+          <li><a href="https://bioconda.github.io/" target="_blank">Bioconda Documentation</a></li>
+          <li><a href="https://docs.conda.io/en/latest/" target="_blank">Conda User Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="module-nav">
+        <a href="unix-linux.html">← Previous: Unix/Linux</a>
+        <a href="containers.html">Next: Containers →</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>Built using Course in a Box, a project of P2PU.</p>
+        <p>Unless otherwise noted, all materials are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+      </div>
+    </footer>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+
+<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/conda.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+</html>
