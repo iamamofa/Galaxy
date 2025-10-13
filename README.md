@@ -126,7 +126,8 @@ Unless otherwise noted, all materials in this course are licensed under a
 This course was built using **Course in a Box**, a project of [P2PU](https://p2pu.org/).  
 We thank the **Galaxy Project** and **open-source bioinformatics community** for providing the tools and data that make this training possible.
 
-**Acknowledgments** to  ```Dr. Jolynne Mokaya for continual Support :smile```
+**Special Acknowledgments** 
+to  ```Dr. Jolynne Mokaya for continual Support```
 ---
 
 > *“Empowering open, reproducible, and accessible bioinformatics education.”*
