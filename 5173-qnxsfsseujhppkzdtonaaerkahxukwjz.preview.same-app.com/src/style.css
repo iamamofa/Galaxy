@@ -447,4 +447,15 @@ body {
   .resource-grid {
     grid-template-columns: 1fr;
   }
+  /* NEW ADDITIONS */
+  .nav-list li a.active {
+  background: #1e3c72;
+  color: white;
+}
+
+.nav-list li a:hover {
+  background: #f0f0f0;
+  color: #1e3c72;
+}
+
 }
