@@ -17,49 +17,67 @@
         <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
       </div>
     </header>
-<!-- NAV BAR OR MAIN HEADING -->
-    <nav class="nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="index-2.html" class="active">Home</a></li>
-          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
-          <li><a href="conda.html">Package Management</a></li>
-          <li><a href="containers.html">Containers</a></li>
-          <li><a href="nextflow.html">Nextflow</a></li>
-          <li><a href="r-programming.html">R- Programming</a></li>
+    <!-- NAV BAR OR MAIN HEADING -->
+<nav class="nav">
+  <div class="container">
+    <ul class="nav-list">
+      <li><a href="index-2.html" class="active">Home</a></li>
+      <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+      <li><a href="conda.html">Package Management</a></li>
+      <li><a href="containers.html">Containers</a></li>
+      <li><a href="nextflow.html">Nextflow</a></li>
+      <li><a href="r-programming.html">R- Programming</a></li>
 
- <!-- ADDING THE SUBHEAD -->     
- <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- Dropdown button -->
+      <!-- ADDING THE SUBHEAD -->
+      <li style="position:relative; display:inline-block;" class="dropdown">
+  <!-- Main dropdown button -->
   <a href="#" class="dropbtn"
-   style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-          border-radius:5px; text-decoration:none; display:inline-block;">
-   Pipelines & Tools
-</a>
-  <!-- Dropdown content -->
+     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+            border-radius:5px; text-decoration:none; display:inline-block;">
+     Pipelines & Tools ▼
+  </a>
+
+  <!-- Main dropdown content -->
   <div class="dropdown-content"
        style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1; border-radius:5px; overflow:hidden; top:100%; left:0;">
-    <a href="r-basics.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">R Basics</a>
-    <a href="r-dataframes.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Data Frames</a>
-    <a href="r-visualization.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Visualization</a>
+              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+              overflow:hidden; top:100%; left:0;">
+    
+    <a href="vibriowatch.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">VibrioWatch</a>
+    <a href="terra.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Terra</a>
+
+    <!-- Galaxy item wrapper -->
+    <div style="position:relative;">
+      <a href="#" 
+         style="color:#333; padding:12px 16px; text-decoration:none; display:block;">
+         Galaxy ▶
+      </a>
+
+      <!-- Galaxy submenu -->
+      <div class="dropdown-submenu"
+           style="display:none; position:absolute; top:0; left:90%; background-color:#f1f1f1; 
+                  min-width:180px; box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                  border-radius:5px; overflow:hidden; z-index:2000;">
+        <a href="galaxy-intro.html"
+           style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Introduction</a>
+        <a href="galaxy-collections.html"
+           style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Collections</a>
+        <a href="workflows.html"
+           style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Workflows</a>
+      </div>
+    </div>
   </div>
 </li>
-<!-- END OF SUBHEAD -->
 
+      <!-- END OF SUBHEAD -->
 
-
-          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
-          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
-          <li><a href="workflows.html">Workflows</a></li>
-          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
-        </ul>
-      </div>
-    </nav>
-
+      <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+    </ul>
+  </div>
+</nav>
+    <!-- END OF NAV  BAR -->
     <main class="container">
       <section class="hero">
         <div class="hero-content">
@@ -149,6 +167,21 @@
             <p>Download the Cholera samples used in this course</p>
             <a href="https://zenodo.org/records/10760705" target="_blank" class="btn">Get Data →</a>
           </div>
+          <div class="resource-item">
+            <h3>VibrioWatch</h3>
+            <p>Get Access to the pipeline to anlayze data</p>
+            <a href="https://pathogen.watch/" target="_blank" class="btn">Access to pipeline →</a>
+          </div>
+          <div class="resource-item">
+            <h3>Terra</h3>
+            <p>Get Access to the workflow to anlayze data</p>
+            <a href="https://terra.bio/" target="_blank" class="btn">Access to Tool →</a>
+          </div>
+          <div class="resource-item">
+            <h3>Avril README</h3>
+            <p>Get Access to the pipeline to anlayze data</p>
+            <a href="https://vibriowatch.readthedocs.io/en/latest/haiti.html" target="_blank" class="btn">Access to Resources →</a>
+          </div>
         </div>
       </section>
     </main>
@@ -161,27 +194,33 @@
     </footer>
 
     <script type="module" src="src/main.ts"></script>
-    <script>
-  // Dropdown hover behavior
+<script>
   document.querySelectorAll('.dropdown').forEach(dropdown => {
     const content = dropdown.querySelector('.dropdown-content');
     const button = dropdown.querySelector('.dropbtn');
 
     dropdown.addEventListener('mouseenter', () => {
       content.style.display = 'block';
-      if (button) {
-        button.style.backgroundColor = '#f0f0f0'; // light gray hover
-        button.style.color = '#1e3c72';           // theme blue text
-      }
+      button.style.backgroundColor = '#f0f0f0';
+      button.style.color = '#1e3c72';
     });
-
     dropdown.addEventListener('mouseleave', () => {
       content.style.display = 'none';
-      if (button) {
-        button.style.backgroundColor = 'white';  // normal background
-        button.style.color = '#555';             // normal text
-      }
+      button.style.backgroundColor = 'white';
+      button.style.color = '#555';
     });
+
+    // Nested submenu hover
+    const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+    if (galaxyWrapper) {
+      const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+      galaxyWrapper.addEventListener('mouseenter', () => {
+        submenu.style.display = 'block';
+      });
+      galaxyWrapper.addEventListener('mouseleave', () => {
+        submenu.style.display = 'none';
+      });
+    }
   });
 </script>
 
