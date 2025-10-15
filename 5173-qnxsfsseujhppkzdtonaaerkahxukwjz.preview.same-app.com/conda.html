@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/conda.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+
 <head>
     <script type="module" src="%40vite/client"></script>
 
@@ -17,22 +17,89 @@
         <p class="subtitle">A Step-by-Step Guide to Analyzing Illumina Sequencing Data</p>
       </div>
     </header>
-    <nav class="nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="index-2.html">Home</a></li>
-          <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
-          <li><a href="conda.html" class="active">Package Management</a></li>
-          <li><a href="containers.html">Containers</a></li>
-          <li><a href="nextflow.html">Nextflow</a></li>
-          <li><a href="r-programming.html">R Programming</a></li>
-          <li><a href="galaxy-intro.html">Galaxy Introduction</a></li>
-          <li><a href="galaxy-collections.html">Galaxy Collections</a></li>
-          <li><a href="workflows.html">Workflows</a></li>
-          <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
-        </ul>
-      </div>
-    </nav>
+     
+  <!-- NAV BAR OR MAIN HEADING -->
+<nav class="nav">
+  <div class="container">
+    <ul class="nav-list">
+      <li><a href="index-2.html" class="active">Home</a></li>
+      <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
+      <li><a href="conda.html">Package Management</a></li>
+      <li><a href="containers.html">Containers</a></li>
+      <li><a href="nextflow.html">Nextflow</a></li>
+      <li><a href="r-programming.html">R- Programming</a></li>
+
+      <!-- ADDING THE SUBHEAD -->
+
+
+  <!-- PIPELINES AND TOOLS DROP-->
+      <li style="position:relative; display:inline-block;" class="dropdown">
+  <!-- Main dropdown button -->
+  <a href="#" class="dropbtn"
+     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+            border-radius:5px; text-decoration:none; display:inline-block;">
+     Pipelines & Tools 
+  </a>
+
+  <!-- Main dropdown content -->
+  <div class="dropdown-content"
+       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+              overflow:hidden; top:100%; left:0;">
+    
+    <a href="vibriowatch.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">VibrioWatch</a>
+    <a href="terra.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Terra</a>
+
+    <div style="position:relative;">
+      <a href="#" 
+         style="color:#333; padding:12px 16px; text-decoration:none; display:block;">
+       Avril Readme
+      </a>
+    </div>
+  </div>
+</li>
+
+      <!-- END DROP MENU -->
+
+
+      <!-- GALAXY DROP-->
+      <li style="position:relative; display:inline-block;" class="dropdown">
+  <!-- Main dropdown button -->
+  <a href="#" class="dropbtn"
+     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+            border-radius:5px; text-decoration:none; display:inline-block;">
+     Galaxy
+  </a>
+
+  <!-- Main dropdown content -->
+  <div class="dropdown-content"
+       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+              overflow:hidden; top:100%; left:0;">
+    
+    <a href="galaxy-intro.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Introduction</a>
+    <a href="galaxy-collections.html"
+       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Collections</a>
+
+    <div style="position:relative;">
+      <a href="workflows.html" 
+         style="color:#333; padding:12px 16px; text-decoration:none; display:block;">
+       Workflows
+      </a>
+    </div>
+  </div>
+</li>
+
+      <!-- END DROP FOR GALAXY MENU -->
+
+      <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
+    </ul>
+  </div>
+</nav>
+    <!-- END OF NAV  BAR -->
     <main class="container">
       <div class="module-nav">
         <a href="unix-linux.html">← Previous: Unix/Linux</a>
@@ -142,7 +209,36 @@
       </div>
     </footer>
     <script type="module" src="src/main.ts"></script>
+    <script>
+  document.querySelectorAll('.dropdown').forEach(dropdown => {
+    const content = dropdown.querySelector('.dropdown-content');
+    const button = dropdown.querySelector('.dropbtn');
+
+    dropdown.addEventListener('mouseenter', () => {
+      content.style.display = 'block';
+      button.style.backgroundColor = '#f0f0f0';
+      button.style.color = '#1e3c72';
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      content.style.display = 'none';
+      button.style.backgroundColor = 'white';
+      button.style.color = '#555';
+    });
+
+    // Nested submenu hover
+    const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+    if (galaxyWrapper) {
+      const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+      galaxyWrapper.addEventListener('mouseenter', () => {
+        submenu.style.display = 'block';
+      });
+      galaxyWrapper.addEventListener('mouseleave', () => {
+        submenu.style.display = 'none';
+      });
+    }
+  });
+</script>
   </body>
 
-<!-- Mirrored from 5173-qnxsfsseujhppkzdtonaaerkahxukwjz.preview.same-app.com/conda.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 10:43:21 GMT -->
+
 </html>
