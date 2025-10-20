@@ -6,6 +6,7 @@
 ## 📖 Overview
 This course provides a complete, hands-on guide to analyzing **Vibrio cholerae** Illumina sequencing data using the **Galaxy platform** and supporting bioinformatics tools.  
 You’ll learn how to perform quality control, genome assembly, annotation, and comparative genomics — all through an accessible, reproducible workflow.
+- **[course link](https://bit.ly/vibrio_cholera_data_analysis)**
 
 The modules in this course include:
 
