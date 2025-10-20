@@ -1,5 +1,5 @@
-# 🧬 Cholera Sample Analysis with Galaxy
-### A Step-by-Step Guide to Analyzing Illumina Sequencing Data
+# 🧬 Vibrio Cholerae Data Analysis
+### A Step-by-Step Guide to Analyzing Vibrio Cholerae Genomic Data
 
 ---
 
