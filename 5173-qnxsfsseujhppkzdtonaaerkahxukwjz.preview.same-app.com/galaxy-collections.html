@@ -282,42 +282,57 @@
       </div>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>Built using Course in a Box, a project of P2PU.</p>
-        <p>Unless otherwise noted, all the materials on this site are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
-      </div>
-    </footer>
+    <!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
 
-    <script type="module" src="src/main.ts"></script>
-    <script>
-  document.querySelectorAll('.dropdown').forEach(dropdown => {
-    const content = dropdown.querySelector('.dropdown-content');
-    const button = dropdown.querySelector('.dropbtn');
+<script type="module" src="src/main.ts"></script>
 
-    dropdown.addEventListener('mouseenter', () => {
-      content.style.display = 'block';
-      button.style.backgroundColor = '#f0f0f0';
-      button.style.color = '#1e3c72';
-    });
-    dropdown.addEventListener('mouseleave', () => {
-      content.style.display = 'none';
-      button.style.backgroundColor = 'white';
-      button.style.color = '#555';
-    });
+<script>
+  async function loadHTML(id, url) {
+    const res = await fetch(url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
 
-    // Nested submenu hover
-    const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
-    if (galaxyWrapper) {
-      const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
-      galaxyWrapper.addEventListener('mouseenter', () => {
-        submenu.style.display = 'block';
-      });
-      galaxyWrapper.addEventListener('mouseleave', () => {
-        submenu.style.display = 'none';
-      });
+    // Initialize dropdowns **after header is loaded**
+    if (id === 'header-placeholder') {
+      initDropdowns();
     }
-  });
+  }
+
+  function initDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+
+      const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+      if (galaxyWrapper) {
+        const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+        if (submenu) {
+          galaxyWrapper.addEventListener('mouseenter', () => { submenu.style.display = 'block'; });
+          galaxyWrapper.addEventListener('mouseleave', () => { submenu.style.display = 'none'; });
+        }
+      }
+    });
+  }
+
+  // Load header and footer
+  loadHTML('header-placeholder', 'header.html');
+  loadHTML('footer-placeholder', 'footer.html');
 </script>
-  </body>
+
+
+</body>
 </html>
+
