@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNAnexus Platform - Cholera Analysis Course</title>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>DNAnexus: Cloud-Based Genomic Data Platform</h1>
+      <p class="subtitle">Secure, scalable, and AI-powered environment for precision health data</p>
+    </div>
+  </header>
+
+  <!-- NAV BAR -->
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../r-programming.html">R Programming</a></li>
+
+        <li style="position:relative; display:inline-block;" class="dropdown">
+          <a href="#" class="dropbtn"
+             style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+                    border-radius:5px; text-decoration:none; display:inline-block;">
+             Pipelines & Platforms
+          </a>
+          <div class="dropdown-content"
+               style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+                      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+                      overflow:hidden; top:100%; left:0;">
+            <a href="https://github.com/CholGen/bacpage" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (CholGen)</a>
+            <a href="https://github.com/idolawoye/BAGEP" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">BAGEP</a>
+            <a href="https://github.com/bactopia/bactopia" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
+            <a href="https://www.dnanexus.com/" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">DNAnexus</a>
+          </div>
+        </li>
+
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="content-box">
+      <h1>DNAnexus: Cloud-Based Genomic Data Platform</h1>
+      <p><strong>DNAnexus</strong> provides a secure, scalable, and AI-powered platform for managing, analyzing, and sharing large-scale genomics and omics datasets. It accelerates research workflows and enables collaboration while maintaining compliance.</p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>Data Management: ingest, store, and integrate omics datasets securely</li>
+        <li>Data Analysis: deploy pipelines and AI/ML algorithms with speed and scalability</li>
+        <li>Collaboration: secure environment for multi-team and multi-institution research</li>
+        <li>Cloud-based platform for reproducible workflows</li>
+        <li>Supports precision health, real-world data, and biobank studies</li>
+      </ul>
+
+      <h2>Getting Started</h2>
+      <p>To begin using DNAnexus, visit the platform website and request an account or demo:</p>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>https://www.dnanexus.com/</code>
+      </div>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Pharmaceutical and biotech research pipelines</li>
+        <li>Clinical diagnostics and patient cohort analyses</li>
+        <li>Population genomics and biobank projects</li>
+        <li>Integration with electronic health records (EHRs)</li>
+      </ul>
+
+      <h2>Advantages</h2>
+      <ul>
+        <li>Secure, compliant cloud infrastructure</li>
+        <li>Streamlined data management and workflow automation</li>
+        <li>Supports collaboration across institutions</li>
+        <li>Accelerates time-to-insight for genomic research</li>
+      </ul>
+
+      <div style="margin-top:2rem;">
+        <a href="https://www.dnanexus.com/" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 Visit DNAnexus
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.ts"></script>
+  <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+    });
+  </script>
+</body>
+</html>

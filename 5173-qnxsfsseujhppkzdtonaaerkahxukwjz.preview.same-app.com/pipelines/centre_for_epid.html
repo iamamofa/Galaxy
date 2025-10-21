@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Center for Genomic Epidemiology - Cholera Analysis Course</title>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Center for Genomic Epidemiology (CGE)</h1>
+      <p class="subtitle">Online tools for bacterial genome analysis and typing</p>
+    </div>
+  </header>
+
+  <!-- NAV BAR -->
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../r-programming.html">R Programming</a></li>
+
+        <li style="position:relative; display:inline-block;" class="dropdown">
+          <a href="#" class="dropbtn"
+             style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+                    border-radius:5px; text-decoration:none; display:inline-block;">
+             Pipelines & Platforms
+          </a>
+          <div class="dropdown-content"
+               style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+                      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+                      overflow:hidden; top:100%; left:0;">
+            <a href="https://github.com/CholGen/bacpage" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (CholGen)</a>
+            <a href="https://github.com/idolawoye/BAGEP" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">BAGEP</a>
+            <a href="https://github.com/bactopia/bactopia" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
+            <a href="https://www.dnanexus.com/" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">DNAnexus</a>
+            <a href="https://www.genomicepidemiology.org/services/" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">CGE</a>
+          </div>
+        </li>
+
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="content-box">
+      <h1>Center for Genomic Epidemiology (CGE)</h1>
+      <p><strong>CGE</strong> provides web-based tools for bacterial genome analysis, phenotyping, typing, phylogeny, and metagenomics. These services help identify antimicrobial resistance, virulence genes, plasmids, and bacterial species.</p>
+
+      <h2>Phenotyping Tools</h2>
+      <ul>
+        <li>ResFinder: Identify acquired antibiotic resistance genes</li>
+        <li>ResFinderFG: Identify functional metagenomic resistance determinants</li>
+        <li>LRE-finder: Detect genes/mutations causing linezolid resistance</li>
+        <li>KmerResistance: Resistance gene detection using k-mers</li>
+        <li>PathogenFinder: Predict bacterial pathogenicity towards humans</li>
+        <li>VirulenceFinder: Identify acquired virulence genes</li>
+        <li>SPIFinder, ToxFinder, Restriction-ModificationFinder</li>
+      </ul>
+
+      <h2>Typing Tools</h2>
+      <ul>
+        <li>MLST and cgMLSTFinder: Multi-locus sequence typing for genomes or reads</li>
+        <li>PlasmidFinder and pMLST: Plasmid detection and typing</li>
+        <li>KmerFinder and SpeciesFinder: Species prediction</li>
+        <li>SeroTypeFinder, SeqSero, spaTyper, FimTyper, CHTyper, PAst, SCCmecFinder</li>
+      </ul>
+
+      <h2>Phylogeny Tools</h2>
+      <ul>
+        <li>MINTyper, CSIPhylogeny, NDtree: SNP-based phylogenetic analysis</li>
+        <li>Evergreen: Forest of updated phylogenetic trees from public bacterial genomes</li>
+        <li>TreeViewer: Visualization of phylogenetic trees</li>
+      </ul>
+
+      <h2>Metagenomics Tools</h2>
+      <ul>
+        <li>CCMetagen: Identification of eukaryotes and prokaryotes in metagenomes</li>
+        <li>RUCS: Rapid identification of PCR primer pairs for unique sequences</li>
+      </ul>
+
+      <h2>Other Tools</h2>
+      <ul>
+        <li>MyKMAfinder, MyDbFinder, MyKmerFinder: Typing/phenotyping using custom databases</li>
+        <li>DeHumanizer: Human read filtering</li>
+        <li>MetaPhinder: Identify bacteriophage sequences</li>
+        <li>Flankophile: Gene synteny analysis</li>
+      </ul>
+
+      <h2>Official Website</h2>
+      <div style="margin-top:1rem;">
+        <a href="https://www.genomicepidemiology.org/services/" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 Visit CGE Services
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.ts"></script>
+  <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bactopia Pipeline - Cholera Analysis Course</title>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Bactopia: Bacterial Genome Analysis Pipeline</h1>
+      <p class="subtitle">A flexible pipeline for complete analysis of bacterial genomes</p>
+    </div>
+  </header>
+
+  <!-- NAV BAR -->
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../r-programming.html">R Programming</a></li>
+
+        <li style="position:relative; display:inline-block;" class="dropdown">
+          <a href="#" class="dropbtn"
+             style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+                    border-radius:5px; text-decoration:none; display:inline-block;">
+             Pipelines & Platforms
+          </a>
+          <div class="dropdown-content"
+               style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+                      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+                      overflow:hidden; top:100%; left:0;">
+            <a href="https://github.com/CholGen/bacpage" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (CholGen)</a>
+            <a href="https://github.com/idolawoye/BAGEP" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">BAGEP</a>
+            <a href="https://github.com/bactopia/bactopia" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
+          </div>
+        </li>
+
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="content-box">
+      <h1>Bactopia: Bacterial Genome Analysis Pipeline</h1>
+      <p><strong>Bactopia</strong> is a flexible pipeline designed to process bacterial genomes efficiently, allowing quality control, assembly, annotation, sequence typing, and comparative analyses.</p>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Per-isolate workflow with Nextflow</li>
+        <li>Quality control, assembly, and annotation</li>
+        <li>Minmer sketch queries and sequence typing</li>
+        <li>Comparative analyses: pan-genome, phylogenetics, summary reports</li>
+        <li>Predictable output structure for easy downstream analyses</li>
+      </ul>
+
+      <h2>Installation</h2>
+      <p>Recommended method using <strong>Mamba</strong>:</p>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>mamba create -y -n bactopia -c conda-forge -c bioconda bactopia</code><br>
+        <code>conda activate bactopia</code><br>
+        <code>bactopia datasets</code>
+      </div>
+
+      <h2>Running Bactopia</h2>
+      <p>Examples:</p>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <strong>Paired-end reads:</strong><br>
+        <code>bactopia --R1 R1.fastq.gz --R2 R2.fastq.gz --sample SAMPLE_NAME --datasets datasets/ --outdir OUTDIR</code><br><br>
+
+        <strong>Single-end reads:</strong><br>
+        <code>bactopia --SE SAMPLE.fastq.gz --sample SAMPLE --datasets datasets/ --outdir OUTDIR</code><br><br>
+
+        <strong>Multiple samples:</strong><br>
+        <code>bactopia prepare MY-FASTQS/ > fastqs.txt</code><br>
+        <code>bactopia --fastqs fastqs.txt --datasets datasets --outdir OUTDIR</code><br><br>
+
+        <strong>Single ENA/SRA experiment:</strong><br>
+        <code>bactopia --accession SRX000000 --datasets datasets --outdir OUTDIR</code>
+      </div>
+
+      <h2>Documentation</h2>
+      <p>Full documentation, tutorials, and advanced usage are available at <a href="https://bactopia.github.io/" target="_blank">https://bactopia.github.io/</a>.</p>
+
+      <h2>Citation</h2>
+      <p>Petit III RA, Read TD. 2020. Bactopia: a flexible pipeline for complete analysis of bacterial genomes. <em>mSystems</em> 5. <a href="https://doi.org/10.1128/mSystems.00190-20" target="_blank">DOI</a></p>
+
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/bactopia/bactopia" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 View on GitHub
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.ts"></script>
+  <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nextstrain - Real-time Pathogen Tracking</title>
+  <link rel="stylesheet" href="../src/style.css" />
+  <style>
+    /* Dark background for code snippets */
+    pre code {
+      display: block;
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    pre {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Nextstrain</h1>
+      <p class="subtitle">Real-time tracking of pathogen evolution</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../docs.html">Documentation</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="content-box">
+      <h2>About Nextstrain</h2>
+      <p><strong>Nextstrain</strong> is an open-source project that harnesses pathogen genome data for real-time epidemiological insights. It allows exploration of evolving pathogen populations, providing interactive visualizations for scientists, epidemiologists, and public health officials.</p>
+
+      <h2>Core Pathogens</h2>
+      <ul>
+        <li>Cholera: Tracking Vibrio cholerae outbreaks globally</li>
+        <li>SARS-CoV-2: COVID-19 virus analysis and clade tracking</li>
+        <li>Mpox: Evolution and outbreak tracking in DRC</li>
+        <li>H5N1 Influenza: Cattle and avian outbreaks</li>
+        <li>Seasonal Influenza</li>
+        <li>Rabies, Yellow Fever, RSV, Ebola, Chikungunya, HIV, Lassa, Measles, Mumps, Rubella, and more</li>
+      </ul>
+
+      <h2>Philosophy</h2>
+      <p>Pathogens accumulate mutations over time. By reconstructing phylogenies, Nextstrain provides insights into transmission patterns, epidemic growth, and geographic spread.</p>
+
+      <h2>Open Source Tooling</h2>
+      <ul>
+        <li>Nextclade: Clade assignment, mutation calling, and sequence quality checks</li>
+        <li>Augur: Bioinformatic workflows for genomic epidemiology</li>
+        <li>Auspice: Visualization of pathogen evolution</li>
+        <li>Nextstrain CLI: Command-line access to pipelines and datasets</li>
+      </ul>
+
+      <h2>Example Command</h2>
+      <p>Run a Nextstrain analysis using the CLI:</p>
+      <pre><code>nextstrain build --config my_config.yaml --output results/
+nextstrain view results/
+</code></pre>
+
+      <h2>Community and Contributions</h2>
+      <p>Nextstrain enables community contributions through shared datasets, narratives, and open-source tools. The project is supported by extensive collaborations with global research groups.</p>
+
+      <h2>Documentation & Resources</h2>
+      <ul>
+        <li><a href="https://nextstrain.org/docs" target="_blank">Nextstrain Documentation</a></li>
+        <li><a href="https://nextstrain.org/blog" target="_blank">Blog</a></li>
+        <li><a href="https://nextstrain.org/groups" target="_blank">Nextstrain Groups</a></li>
+        <li><a href="https://github.com/nextstrain" target="_blank">Source Code on GitHub</a></li>
+      </ul>
+
+      <h2>Citation</h2>
+      <p>Hadfield et al., Nextstrain: real-time tracking of pathogen evolution, <em>Bioinformatics</em> (2018). Cite all source code under GNU AGPL license.</p>
+
+      <div style="margin-top:2rem;">
+        <a href="https://nextstrain.org/" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 Visit Nextstrain
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Nextstrain is developed by Trevor Bedford, Richard Neher, and the core team.</p>
+      <p>All source code is under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">GNU AGPL License</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

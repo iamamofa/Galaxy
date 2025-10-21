@@ -1,293 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-
 <head>
     <script type="module" src="%40vite/client"></script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibrio Cholera Data Analysis</title>
     <link rel="stylesheet" href="src/style.css" />
-  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <h1>Vibrio Cholerae Data Analysis</h1>
-        <p class="subtitle">A Step-by-step Guide to Analysing Vibrio Cholerae Genomic Data</p>
+    <script crossorigin="anonymous" src="../same.new/inject.html"></script>
+</head>
+<body>
+
+<!-- Header placeholder -->
+<div id="header-placeholder"></div>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to the Bioinformatics Course</h2>
+      <p>Learn step-by-step how to analyze Cholera samples using Illumina sequencing and Galaxy workflows</p>
+      <div class="hero-image-container">
+        <img src="../upload.wikimedia.org/wikipedia/commons/9/9d/1800x1200-cholera-bigbead.jpg" alt="Cholera bacteria under electron microscope" class="hero-image">
+        <p class="image-caption">Vibrio cholerae bacteria under scanning electron microscope</p>
       </div>
-    </header>
-
-    
-    <!-- NAV BAR OR MAIN HEADING -->
-<nav class="nav">
-  <div class="container">
-    <ul class="nav-list">
-      <li><a href="index-2.html" class="active">Home</a></li>
-      <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
-      <li><a href="conda.html">Package Management</a></li>
-      <li><a href="containers.html">Containers</a></li>
-      <li><a href="nextflow.html">Nextflow</a></li>
-      <li><a href="r-programming.html">R- Programming</a></li>
-
-      <!-- ADDING THE SUBHEAD -->
-
-
-  <!-- PIPELINES AND TOOLS DROP-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- Main dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Pipelines & Platforms
-  </a>
-
-  <!-- PIPELINES  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="https://vibriowatch.readthedocs.io/en/latest/index.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Vibriowatch</a>
-    <a href="https://github.com/CholGen/bacpage"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (Cholgen)</a>
-       <a href="https://github.com/idolawoye/BAGEP?tab=readme-ov-file"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bagep</a>
-        <a href="https://bactopia.github.io/latest/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
-        <a href="https://www.dnanexus.com"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">DNA Nexus</a>
-        <a href="https://nf-co.re/pathogensurveillance/dev/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Pathogen Surveillance</a>
-        <a href="#"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Choleraseq</a>
-        <a href="https://irida.ca/platform-overview/platform-overview.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">IRIDA</a>
-        <a href="https://www.genomicepidemiology.org/services/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Centre for Genomic Epideiology</a>
-       <a href="https://nextstrain.org/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Nextstrain</a>
-       <a href="terra.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Terra</a>
-    <div style="position:relative;">
-      
     </div>
-  </div>
-</li>
+  </section>
 
-      <!-- END DROP  Pipelines MENU -->
+  <section class="modules">
+    <h2>Course Modules</h2>
+    <div class="module-grid">
+      <a href="unix-linux.html" class="module-card">
+        <div class="module-number">01</div>
+        <h3>Unix/Linux Introduction</h3>
+        <p>Master the command line basics for bioinformatics workflows</p>
+      </a>
 
+      <a href="conda.html" class="module-card">
+        <div class="module-number">02</div>
+        <h3>Package Management with Conda</h3>
+        <p>Learn to manage bioinformatics software environments</p>
+      </a>
 
-      <!-- GALAXY DROP-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- Main dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Galaxy
-  </a>
+      <a href="containers.html" class="module-card">
+        <div class="module-number">03</div>
+        <h3>Containers</h3>
+        <p>Understanding Docker and containerized workflows</p>
+      </a>
 
-  <!-- Galaxy  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="galaxy-intro.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Introduction</a>
-    <a href="galaxy-collections.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Collections</a>
+      <a href="nextflow.html" class="module-card">
+        <div class="module-number">04</div>
+        <h3>Nextflow</h3>
+        <p>Build scalable and reproducible bioinformatics pipelines</p>
+      </a>
 
-    <div style="position:relative;">
-      <a href="workflows.html" 
-         style="color:#333; padding:12px 16px; text-decoration:none; display:block;">
-       Workflows
+      <a href="r-programming.html" class="module-card">
+        <div class="module-number">05</div>
+        <h3>R Programming</h3>
+        <p>Statistical analysis and visualization for genomics data</p>
+      </a>
+
+      <a href="galaxy-intro.html" class="module-card">
+        <div class="module-number">06</div>
+        <h3>Galaxy Introduction</h3>
+        <p>Get started with the Galaxy platform for bioinformatics</p>
+      </a>
+
+      <a href="galaxy-collections.html" class="module-card highlight">
+        <div class="module-number">07</div>
+        <h3>Making Collections in Galaxy</h3>
+        <p>Learn to organize and process multiple samples efficiently</p>
+      </a>
+
+      <a href="workflows.html" class="module-card highlight">
+        <div class="module-number">08</div>
+        <h3>Workflows</h3>
+        <p>Create automated analysis pipelines in Galaxy</p>
+      </a>
+
+      <a href="cholera-case-study.html" class="module-card highlight">
+        <div class="module-number">09</div>
+        <h3>Cholera Case Study</h3>
+        <p>Apply everything you've learned to analyze real Cholera samples</p>
       </a>
     </div>
-  </div>
-</li>
+  </section>
 
-      <!-- END DROP FOR GALAXY MENU -->
-
-      <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
-      <!-- COURSE DATA MENU-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Course Data
-  </a>
-
-  <!-- Course Data Menu  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="https://zenodo.org/records/10760705"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Raw Data </a>
-    <a href="#"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Assemblies</a>
-  </div>
-</li>
-
-      <!-- End of Course data menu -->
-    </ul>
-  </div>
-</nav>
-    <!-- END OF NAV  BAR -->
-
-
-
-    <main class="container">
-      <section class="hero">
-        <div class="hero-content">
-          <h2>Welcome to the Bioinformatics Course</h2>
-          <p>Learn step-by-step how to analyze Cholera samples using Illumina sequencing and Galaxy workflows</p>
-          <div class="hero-image-container">
-            <img src="../upload.wikimedia.org/wikipedia/commons/9/9d/1800x1200-cholera-bigbead.jpg" alt="Cholera bacteria under electron microscope" class="hero-image">
-            <p class="image-caption">Vibrio cholerae bacteria under scanning electron microscope</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="modules">
-        <h2>Course Modules</h2>
-        <div class="module-grid">
-          <a href="unix-linux.html" class="module-card">
-            <div class="module-number">01</div>
-            <h3>Unix/Linux Introduction</h3>
-            <p>Master the command line basics for bioinformatics workflows</p>
-          </a>
-
-          <a href="conda.html" class="module-card">
-            <div class="module-number">02</div>
-            <h3>Package Management with Conda</h3>
-            <p>Learn to manage bioinformatics software environments</p>
-          </a>
-
-          <a href="containers.html" class="module-card">
-            <div class="module-number">03</div>
-            <h3>Containers</h3>
-            <p>Understanding Docker and containerized workflows</p>
-          </a>
-
-          <a href="nextflow.html" class="module-card">
-            <div class="module-number">04</div>
-            <h3>Nextflow</h3>
-            <p>Build scalable and reproducible bioinformatics pipelines</p>
-          </a>
-
-          <a href="r-programming.html" class="module-card">
-            <div class="module-number">05</div>
-            <h3>R Programming</h3>
-            <p>Statistical analysis and visualization for genomics data</p>
-          </a>
-
-          <a href="galaxy-intro.html" class="module-card">
-            <div class="module-number">06</div>
-            <h3>Galaxy Introduction</h3>
-            <p>Get started with the Galaxy platform for bioinformatics</p>
-          </a>
-
-          <a href="galaxy-collections.html" class="module-card highlight">
-            <div class="module-number">07</div>
-            <h3>Making Collections in Galaxy</h3>
-            <p>Learn to organize and process multiple samples efficiently</p>
-          </a>
-
-          <a href="workflows.html" class="module-card highlight">
-            <div class="module-number">08</div>
-            <h3>Workflows</h3>
-            <p>Create automated analysis pipelines in Galaxy</p>
-          </a>
-
-          <a href="cholera-case-study.html" class="module-card highlight">
-            <div class="module-number">09</div>
-            <h3>Cholera Case Study</h3>
-            <p>Apply everything you've learned to analyze real Cholera samples</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="resources">
-        <h2>Additional Resources</h2>
-        <div class="resource-grid">
-          <div class="resource-item">
-            <h3>Galaxy Training Network</h3>
-            <p>Access hundreds of tutorials and training materials</p>
-            <a href="https://training.galaxyproject.org/" target="_blank" class="btn">Visit GTN →</a>
-          </div>
-          <div class="resource-item">
-            <h3>Galaxy Main Server</h3>
-            <p>Use the free public Galaxy server for your analysis</p>
-            <a href="https://usegalaxy.org/" target="_blank" class="btn">Launch Galaxy →</a>
-          </div>
-          <div class="resource-item">
-            <h3>Course Dataset</h3>
-            <p>Download the Cholera samples used in this course</p>
-            <a href="https://zenodo.org/records/10760705" target="_blank" class="btn">Get Data →</a>
-          </div>
-          <div class="resource-item">
-            <h3>VibrioWatch</h3>
-            <p>Get Access to the pipeline to anlayze data</p>
-            <a href="https://vibriowatch.readthedocs.io/en/latest/index.html" target="_blank" class="btn">Access to pipeline →</a>
-          </div>
-          <div class="resource-item">
-            <h3>Terra</h3>
-            <p>Get Access to the workflow to anlayze data</p>
-            <a href="https://terra.bio/" target="_blank" class="btn">Access to Tool →</a>
-          </div>
-          <div class="resource-item">
-            <h3>Case Study Haiti</h3>
-            <p>Get Access to the pipeline to anlayze data</p>
-            <a href="https://vibriowatch.readthedocs.io/en/latest/haiti.html" target="_blank" class="btn">Access to Resources →</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>Built using By <a href="#" target="_blank">Cholera Data Analysis Working Group</a> a project of Community of Practice.</p>
-        <p>Unless otherwise noted, all the materials on this site are licensed under a <a href="#" target="_blank">CC BY-SA 4.0 license</a>.</p>
+  <section class="resources">
+    <h2>Additional Resources</h2>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <h3>Galaxy Training Network</h3>
+        <p>Access hundreds of tutorials and training materials</p>
+        <a href="https://training.galaxyproject.org/" target="_blank" class="btn">Visit GTN →</a>
       </div>
-    </footer>
+      <div class="resource-item">
+        <h3>Galaxy Main Server</h3>
+        <p>Use the free public Galaxy server for your analysis</p>
+        <a href="https://usegalaxy.org/" target="_blank" class="btn">Launch Galaxy →</a>
+      </div>
+      <div class="resource-item">
+        <h3>Course Dataset</h3>
+        <p>Download the Cholera samples used in this course</p>
+        <a href="https://zenodo.org/records/10760705" target="_blank" class="btn">Get Data →</a>
+      </div>
+      <div class="resource-item">
+        <h3>VibrioWatch</h3>
+        <p>Get Access to the pipeline to analyze data</p>
+        <a href="https://vibriowatch.readthedocs.io/en/latest/index.html" target="_blank" class="btn">Access pipeline →</a>
+      </div>
+      <div class="resource-item">
+        <h3>Terra</h3>
+        <p>Get Access to the workflow to analyze data</p>
+        <a href="https://terra.bio/" target="_blank" class="btn">Access Tool →</a>
+      </div>
+      <div class="resource-item">
+        <h3>Case Study Haiti</h3>
+        <p>Get Access to the pipeline to analyze data</p>
+        <a href="https://vibriowatch.readthedocs.io/en/latest/haiti.html" target="_blank" class="btn">Access Resources →</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <script type="module" src="src/main.ts"></script>
+<!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
+
+<script type="module" src="src/main.ts"></script>
+
 <script>
-  document.querySelectorAll('.dropdown').forEach(dropdown => {
-    const content = dropdown.querySelector('.dropdown-content');
-    const button = dropdown.querySelector('.dropbtn');
+  async function loadHTML(id, url) {
+    const res = await fetch(url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
 
-    dropdown.addEventListener('mouseenter', () => {
-      content.style.display = 'block';
-      button.style.backgroundColor = '#f0f0f0';
-      button.style.color = '#1e3c72';
-    });
-    dropdown.addEventListener('mouseleave', () => {
-      content.style.display = 'none';
-      button.style.backgroundColor = 'white';
-      button.style.color = '#555';
-    });
-
-    // Nested submenu hover
-    const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
-    if (galaxyWrapper) {
-      const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
-      galaxyWrapper.addEventListener('mouseenter', () => {
-        submenu.style.display = 'block';
-      });
-      galaxyWrapper.addEventListener('mouseleave', () => {
-        submenu.style.display = 'none';
-      });
+    // Initialize dropdowns **after header is loaded**
+    if (id === 'header-placeholder') {
+      initDropdowns();
     }
-  });
+  }
+
+  function initDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+
+      const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+      if (galaxyWrapper) {
+        const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+        if (submenu) {
+          galaxyWrapper.addEventListener('mouseenter', () => { submenu.style.display = 'block'; });
+          galaxyWrapper.addEventListener('mouseleave', () => { submenu.style.display = 'none'; });
+        }
+      }
+    });
+  }
+
+  // Load header and footer
+  loadHTML('header-placeholder', 'header.html');
+  loadHTML('footer-placeholder', 'footer.html');
 </script>
 
-    
-  </body>
 
+</body>
 </html>

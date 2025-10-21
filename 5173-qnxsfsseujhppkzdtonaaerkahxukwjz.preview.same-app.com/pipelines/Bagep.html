@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAGEP Pipeline - Cholera Analysis Course</title>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>BAGEP: Bacterial Genome Pipeline</h1>
+      <p class="subtitle">Automated workflow for bacterial genome sequencing analysis</p>
+    </div>
+  </header>
+
+  <!-- NAV BAR -->
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../r-programming.html">R Programming</a></li>
+
+        <li style="position:relative; display:inline-block;" class="dropdown">
+          <a href="#" class="dropbtn"
+             style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
+                    border-radius:5px; text-decoration:none; display:inline-block;">
+             Pipelines & Platforms
+          </a>
+          <div class="dropdown-content"
+               style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
+                      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
+                      overflow:hidden; top:100%; left:0;">
+            <a href="https://github.com/CholGen/bacpage" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (CholGen)</a>
+            <a href="https://github.com/idolawoye/BAGEP" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">BAGEP</a>
+            <a href="https://bactopia.github.io/latest/" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
+          </div>
+        </li>
+
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="content-box">
+      <h1>BAGEP: Bacterial Genome Pipeline</h1>
+      <p><strong>BAGEP</strong> is an automated and scalable workflow for analyzing whole genome sequencing of bacterial samples. It also generates interactive heatmaps for SNP visualization across the genome.</p>
+
+      <h2>Installation</h2>
+      <p>Clone the BAGEP repository:</p>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>git clone https://github.com/idolawoye/BAGEP.git</code><br>
+        <code>cd BAGEP</code>
+      </div>
+
+      <p>Ensure you have <strong>Linux OS</strong> (Ubuntu 16.04+ recommended) and <strong>Miniconda</strong> installed. For Windows, use WSL.</p>
+
+      <h3>Create the Conda Environment</h3>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>conda env create -f environment.yml</code><br>
+        <code>conda activate bagep</code>
+      </div>
+
+      <h2>Dependencies</h2>
+      <ul>
+        <li>Fastp</li>
+        <li>Snippy</li>
+        <li>IQ-TREE</li>
+        <li>Abricate</li>
+        <li>Snakemake</li>
+        <li>Centrifuge</li>
+        <li>R libraries: vcfR, ggplot2, heatmaply</li>
+      </ul>
+
+      <h2>Setup Centrifuge Database</h2>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>wget -c ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p_compressed+h+v.tar.gz</code><br>
+        <code>mkdir $HOME/centrifuge-db</code><br>
+        <code>tar -C $HOME/centrifuge-db -zxvf p_compressed+h+v.tar.gz</code><br>
+        <code>export CENTRIFUGE_DEFAULT_DB=$HOME/centrifuge-db/p_compressed+h+v</code>
+      </div>
+
+      <h2>Running BAGEP</h2>
+      <p>Ensure your paired-end FASTQ files are named as <code>SampleName_R1.fastq.gz</code> and <code>SampleName_R2.fastq.gz</code>, and placed in a <code>fastq/</code> folder. Then run:</p>
+      <div style="background:#1e1e1e; color:#dcdcdc; padding:1rem; border-radius:5px; font-family:'Courier New', monospace;">
+        <code>snakemake --config ref={your_reference_genome}</code>
+      </div>
+
+      <h2>Outputs</h2>
+      <ul>
+        <li>Trimmed FASTQ files in <code>fastp/</code></li>
+        <li>Taxonomic classification in <code>taxonomy/fastq/</code> (interactive Krona HTML)</li>
+        <li>AMR detection in <code>amr_output</code> TAB file</li>
+        <li>Core genome and whole genome alignments in <code>results/</code></li>
+        <li>Phylogenetic tree (<code>*.treefile</code>)</li>
+        <li>SNP heatmap in <code>heatmap_output.html</code></li>
+      </ul>
+
+      <h2>Citation</h2>
+      <p>Olawoye IB, Frost SDW, Happi CT. 2020. The Bacteria Genome Pipeline (BAGEP): an automated, scalable workflow for bacteria genomes with Snakemake. PeerJ 8:e10121. <a href="https://doi.org/10.7717/peerj.10121" target="_blank">DOI</a></p>
+
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/idolawoye/BAGEP" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 View on GitHub
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.ts"></script>
+  <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+    });
+  </script>
+</body>
+</html>

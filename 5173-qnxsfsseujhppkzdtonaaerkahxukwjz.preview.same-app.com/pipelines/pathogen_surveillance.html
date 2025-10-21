@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nf-core/pathogensurveillance Pipeline</title>
+  <link rel="stylesheet" href="../src/style.css" />
+  <style>
+    /* Dark background for code snippets */
+    pre code {
+      display: block;
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    pre {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>nf-core/pathogensurveillance</h1>
+      <p class="subtitle">Population genomics pipeline for pathogen identification, variant detection, and biosurveillance</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="content-box">
+      <h2>Introduction</h2>
+      <p><strong>nf-core/pathogensurveillance</strong> is a Nextflow pipeline for pathogen identification, variant detection, and biosurveillance. The pipeline generates interactive HTML reports, supports multiple compute infrastructures, and uses Docker, Singularity, or Conda for reproducible installation.</p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>Population genomics analysis for multiple organisms</li>
+        <li>Rapid k-mer-based identification followed by phylogenetic analysis</li>
+        <li>Automated reference retrieval from NCBI RefSeq</li>
+        <li>Support for user-defined sample groupings and reports</li>
+        <li>Nextflow DSL2 with one container per process for maintainability</li>
+        <li>Continuous integration testing on AWS with full-sized datasets</li>
+      </ul>
+
+      <h2>Quick Start</h2>
+      <p>Test your Nextflow and nf-core setup first using a small dataset:</p>
+      <pre><code>nextflow run nf-core/pathogensurveillance -profile test,docker --outdir test_output</code></pre>
+
+      <h2>Test Dataset Profiles</h2>
+      <p>Available test profiles for different organisms and dataset sizes:</p>
+      <ul>
+        <li>test: 1 small genome for fast testing</li>
+        <li>test_serratia: 10 Serratia isolates</li>
+        <li>test_bordetella: 5 Bordetella pertussis isolates</li>
+        <li>test_salmonella: 5 Salmonella isolates</li>
+        <li>test_boxwood_blight: 5 samples of Cylindrocladium buxicola</li>
+        <li>test_mycobacteroides: 5 Mycobacteroides abscessus samples</li>
+        <li>test_bacteria: 10 mixed bacteria</li>
+        <li>test_klebsiella: 10 K. pneumoniae and related species</li>
+        <li>test_small_genomes: 6 samples with small genomes</li>
+      </ul>
+      <p>To run a test profile with Docker:</p>
+      <pre><code>nextflow run nf-core/pathogensurveillance -profile docker,test_bacteria -resume --outdir test_output</code></pre>
+      <p>Sample sheets for these profiles can be found here:</p>
+      <p><a href="https://github.com/nf-core/test-datasets/tree/pathogensurveillance" target="_blank">nf-core test datasets</a></p>
+
+      <h2>Running Your Own Data</h2>
+      <pre><code>nextflow run nf-core/pathogensurveillance -profile &lt;docker|singularity|conda&gt; -resume --input &lt;samplesheet.tsv/csv&gt; --outdir &lt;output_path&gt;</code></pre>
+
+      <h2>Documentation</h2>
+      <p>Full usage instructions, parameter documentation, and examples can be found in the official nf-core/pathogensurveillance documentation:</p>
+      <p><a href="https://nf-co.re/pathogensurveillance" target="_blank">https://nf-co.re/pathogensurveillance</a></p>
+
+      <h2>Credits</h2>
+      <p>Contributors include Zachary S.L. Foster, Martha Sudermann, Camilo Parada-Rojas, Logan K. Blair, Fernanda I. Bocardo, Ricardo Alcalá-Briseño, Hung Phan, Nicholas C. Cauldron, Alexandra J. Weisberg, Jeff H. Chang, and Niklaus J. Grünwald.</p>
+
+      <h2>Funding</h2>
+      <p>Supported by USDA ARS, USDA NIFA, USDAR ARS NPDRS, FNRI, and USDA APHIS.</p>
+
+      <h2>Citations</h2>
+      <p>For tools used in this pipeline, see <code>CITATIONS.md</code>. Cite the nf-core framework as:</p>
+      <pre><code>Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, 
+Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
+Nat Biotechnol. 2020 Feb 13. doi:10.1038/s41587-020-0439-x</code></pre>
+
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/nf-core/pathogensurveillance" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 View on GitHub
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

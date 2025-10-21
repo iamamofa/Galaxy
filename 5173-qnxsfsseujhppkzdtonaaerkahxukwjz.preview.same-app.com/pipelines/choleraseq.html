@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CholeraSeq Pipeline - CERI-KRISP</title>
+  <link rel="stylesheet" href="../src/style.css" />
+  <style>
+    /* Dark background for code snippets */
+    pre code {
+      display: block;
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    pre {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>CholeraSeq: Cholera Outbreak Genomic Analysis Pipeline</h1>
+      <p class="subtitle">A Nextflow pipeline for genomic data analysis of Cholera outbreaks</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index-2.html">Home</a></li>
+        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
+        <li><a href="../conda.html">Package Management</a></li>
+        <li><a href="../containers.html">Containers</a></li>
+        <li><a href="../nextflow.html">Nextflow</a></li>
+        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="content-box">
+      <h2>Introduction</h2>
+      <p><strong>CERI-KRISP/CholeraSeq</strong> is a Nextflow pipeline for genomic data analysis of Cholera outbreaks. It supports reproducible analysis using Docker, Singularity, or Conda environments.</p>
+
+      <h2>Reference Dataset</h2>
+      <p>A multi-fasta reference including global cohorts is available on NCBI:</p>
+      <p><a href="https://zenodo.org/" target="_blank">Zenodo Dataset</a></p>
+
+      <h2>Installation</h2>
+      <p>Run CholeraSeq using Nextflow with Docker, Singularity, or Conda. Example using Docker for testing:</p>
+      <pre><code>$ nextflow run CERI-KRISP/CholeraSeq -profile test,docker --outdir test_output</code></pre>
+      <p>For Singularity:</p>
+      <pre><code>$ nextflow run CERI-KRISP/CholeraSeq -profile test,singularity --outdir test_output</code></pre>
+
+      <h2>Samplesheet Input</h2>
+      <p>Create a CSV samplesheet with three columns (header required):</p>
+      <pre><code>sample,fastq_1,fastq_2
+SRR8364252,ftp://ftp.sra.ebi.ac.uk/..._1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/..._2.fastq.gz
+SRR771360,ftp://ftp.sra.ebi.ac.uk/...fastq.gz,
+AHGB01000000.1,https://github.com/.../AHGB01.fasta,</code></pre>
+      <p>Specify the samplesheet when running the pipeline:</p>
+      <pre><code>--samplesheet '[path to samplesheet file]'</code></pre>
+
+      <h2>Running the Pipeline</h2>
+      <p>Example command using Docker profile:</p>
+      <pre><code>nextflow run CERI-KRISP/CholeraSeq \
+         -profile docker \
+         --samplesheet /path/to/samplesheet.csv \
+         --outdir results</code></pre>
+      <p>Optional: Use a YAML/JSON file to repeatedly specify parameters:</p>
+      <pre><code>nextflow run ceri-krisp/choleraseq -profile docker -params-file params.yaml</code></pre>
+
+      <h2>Updating & Reproducibility</h2>
+      <ul>
+        <li>Pull latest version: <code>nextflow pull ceri-krisp/choleraseq</code></li>
+        <li>Specify pipeline version for reproducibility: <code>-r 1.3.1</code></li>
+        <li>Cached results are reused with <code>-resume</code> flag</li>
+      </ul>
+
+      <h2>Core Nextflow Arguments</h2>
+      <ul>
+        <li><strong>-profile</strong>: Choose configuration profile (docker, singularity, conda, etc.)</li>
+        <li><strong>-resume</strong>: Resume previous runs using cached results</li>
+        <li><strong>-c</strong>: Specify custom config file (for resource tuning)</li>
+      </ul>
+
+      <h2>Resources & Customization</h2>
+      <p>CholeraSeq allows custom resource requests, containers, and tool arguments. For more details, consult the nf-core documentation and nf-core/configs repository.</p>
+
+      <h2>Documentation & References</h2>
+      <p>Full documentation: <a href="https://ceri-krisp.github.io/CholeraSeq/" target="_blank">https://ceri-krisp.github.io/CholeraSeq/</a></p>
+      <p>Pipeline uses nf-core framework under MIT license. Key references include:</p>
+      <ul>
+        <li>Philip Ewels et al., Nat Biotechnol. 2020, doi:10.1038/s41587-020-0439-x</li>
+      </ul>
+
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/CERI-KRISP/CholeraSeq" 
+           target="_blank" 
+           style="background-color:#24292e; color:white; padding:12px 24px; border-radius:5px; text-decoration:none; font-weight:bold;">
+           🔗 View on GitHub
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built using Course in a Box, a project of P2PU.</p>
+      <p>All materials are licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
