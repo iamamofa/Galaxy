@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terra Platform - Biomedical Data Analysis</title>
-  <link rel="stylesheet" href="../src/style.css" />
-  <style>
+    <script type="module" src="%40vite/client"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibrio Cholera Data Analysis</title>
+    <link rel="stylesheet" href="../src/style.css" />
+    <style>
     /* Dark background for code snippets */
     pre code {
       display: block;
@@ -20,26 +21,13 @@
       margin: 1rem 0;
     }
   </style>
+
+    <script crossorigin="anonymous" src="../same.new/inject.html"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>Terra Platform</h1>
-      <p class="subtitle">Trusted platform for biomedical data analysis, secure sharing, and global collaboration</p>
-    </div>
-  </header>
 
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-list">
-        <li><a href="../index-2.html">Home</a></li>
-        <li><a href="../resources.html">Resources</a></li>
-        <li><a href="../get-started.html">Get Started</a></li>
-        <li><a href="../terra-support.html">Terra Support</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- Header placeholder -->
+<div id="header-placeholder"></div>
 
   <main class="container">
     <div class="content-box">
@@ -91,11 +79,56 @@ terrapy run workflow.yaml --input samples.csv --output results/
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Developed by the Broad Institute of MIT and Harvard, in collaboration with Microsoft and Verily.</p>
-      <p>All materials are subject to Terra's <a href="https://terra.bio/terms-of-service" target="_blank">Terms of Service</a>.</p>
-    </div>
-  </footer>
+  <!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
+
+<script type="module" src="src/main.ts"></script>
+
+<script>
+  async function loadHTML(id, url) {
+    const res = await fetch(url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+
+    // Initialize dropdowns **after header is loaded**
+    if (id === 'header-placeholder') {
+      initDropdowns();
+    }
+  }
+
+  function initDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const content = dropdown.querySelector('.dropdown-content');
+      const button = dropdown.querySelector('.dropbtn');
+
+      dropdown.addEventListener('mouseenter', () => {
+        content.style.display = 'block';
+        button.style.backgroundColor = '#f0f0f0';
+        button.style.color = '#1e3c72';
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        content.style.display = 'none';
+        button.style.backgroundColor = 'white';
+        button.style.color = '#555';
+      });
+
+      const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+      if (galaxyWrapper) {
+        const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+        if (submenu) {
+          galaxyWrapper.addEventListener('mouseenter', () => { submenu.style.display = 'block'; });
+          galaxyWrapper.addEventListener('mouseleave', () => { submenu.style.display = 'none'; });
+        }
+      }
+    });
+  }
+
+  // Load header and footer
+  loadHTML('header-placeholder', 'header.html');
+  loadHTML('footer-placeholder', 'footer.html');
+</script>
+
+
 </body>
 </html>

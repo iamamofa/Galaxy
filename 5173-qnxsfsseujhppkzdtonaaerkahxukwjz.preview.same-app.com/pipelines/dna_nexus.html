@@ -1,52 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DNAnexus Platform - Cholera Analysis Course</title>
-  <link rel="stylesheet" href="../src/style.css" />
+    <script type="module" src="%40vite/client"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibrio Cholera Data Analysis</title>
+    <link rel="stylesheet" href="../src/style.css" />
+    <script crossorigin="anonymous" src="../same.new/inject.html"></script>
 </head>
-
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>DNAnexus: Cloud-Based Genomic Data Platform</h1>
-      <p class="subtitle">Secure, scalable, and AI-powered environment for precision health data</p>
-    </div>
-  </header>
 
-  <!-- NAV BAR -->
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-list">
-        <li><a href="../index-2.html">Home</a></li>
-        <li><a href="../unix-linux.html">Unix/Linux Introduction</a></li>
-        <li><a href="../conda.html">Package Management</a></li>
-        <li><a href="../containers.html">Containers</a></li>
-        <li><a href="../nextflow.html">Nextflow</a></li>
-        <li><a href="../r-programming.html">R Programming</a></li>
-
-        <li style="position:relative; display:inline-block;" class="dropdown">
-          <a href="#" class="dropbtn"
-             style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-                    border-radius:5px; text-decoration:none; display:inline-block;">
-             Pipelines & Platforms
-          </a>
-          <div class="dropdown-content"
-               style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-                      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-                      overflow:hidden; top:100%; left:0;">
-            <a href="https://github.com/CholGen/bacpage" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (CholGen)</a>
-            <a href="https://github.com/idolawoye/BAGEP" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">BAGEP</a>
-            <a href="https://github.com/bactopia/bactopia" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
-            <a href="https://www.dnanexus.com/" style="color:#333; padding:12px 16px; text-decoration:none; display:block;">DNAnexus</a>
-          </div>
-        </li>
-
-        <li><a href="../cholera-case-study.html">Cholera Case Study</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- Header placeholder -->
+<div id="header-placeholder"></div>
 
   <!-- MAIN CONTENT -->
   <main class="container">
@@ -95,29 +60,57 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Built using Course in a Box, a project of P2PU.</p>
-      <p>All materials are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 license</a>.</p>
-    </div>
-  </footer>
+  
+<!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
 
-  <script type="module" src="src/main.ts"></script>
-  <script>
+<script type="module" src="src/main.ts"></script>
+
+<script>
+  async function loadHTML(id, url) {
+    const res = await fetch(url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+
+    // Initialize dropdowns **after header is loaded**
+    if (id === 'header-placeholder') {
+      initDropdowns();
+    }
+  }
+
+  function initDropdowns() {
     document.querySelectorAll('.dropdown').forEach(dropdown => {
       const content = dropdown.querySelector('.dropdown-content');
       const button = dropdown.querySelector('.dropbtn');
+
       dropdown.addEventListener('mouseenter', () => {
         content.style.display = 'block';
         button.style.backgroundColor = '#f0f0f0';
         button.style.color = '#1e3c72';
       });
+
       dropdown.addEventListener('mouseleave', () => {
         content.style.display = 'none';
         button.style.backgroundColor = 'white';
         button.style.color = '#555';
       });
+
+      const galaxyWrapper = dropdown.querySelector('div[style*="position:relative"]');
+      if (galaxyWrapper) {
+        const submenu = galaxyWrapper.querySelector('.dropdown-submenu');
+        if (submenu) {
+          galaxyWrapper.addEventListener('mouseenter', () => { submenu.style.display = 'block'; });
+          galaxyWrapper.addEventListener('mouseleave', () => { submenu.style.display = 'none'; });
+        }
+      }
     });
-  </script>
+  }
+
+  // Load header and footer
+  loadHTML('header-placeholder', 'header.html');
+  loadHTML('footer-placeholder', 'footer.html');
+</script>
+
+
 </body>
 </html>
