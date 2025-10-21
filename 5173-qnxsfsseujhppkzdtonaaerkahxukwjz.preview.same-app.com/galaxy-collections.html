@@ -1,140 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
     <script type="module" src="%40vite/client"></script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Making Collections in Galaxy - Cholera Analysis Course</title>
+    <title>Vibrio Cholera Data Analysis</title>
     <link rel="stylesheet" href="src/style.css" />
-  <script crossorigin="anonymous" src="../same.new/inject.html"></script></head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <h1>Vibrio Cholerae Data Analysis</h1>
-        <p class="subtitle">A Step-by-Step Guide to Analyzing Vibrio Cholerae Genomic Data</p>
-      </div>
-    </header>
- <!-- NAV BAR OR MAIN HEADING -->
-<nav class="nav">
-  <div class="container">
-    <ul class="nav-list">
-      <li><a href="index-2.html" class="active">Home</a></li>
-      <li><a href="unix-linux.html">Unix/Linux Introduction</a></li>
-      <li><a href="conda.html">Package Management</a></li>
-      <li><a href="containers.html">Containers</a></li>
-      <li><a href="nextflow.html">Nextflow</a></li>
-      <li><a href="r-programming.html">R- Programming</a></li>
+    <script crossorigin="anonymous" src="../same.new/inject.html"></script>
+</head>
+<body>
 
-      <!-- ADDING THE SUBHEAD -->
-
-
-  <!-- PIPELINES AND TOOLS DROP-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- Main dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Pipelines & Platforms
-  </a>
-
-  <!-- PIPELINES  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="https://vibriowatch.readthedocs.io/en/latest/index.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Vibriowatch</a>
-    <a href="https://github.com/CholGen/bacpage"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bacpage (Cholgen)</a>
-       <a href="https://github.com/idolawoye/BAGEP?tab=readme-ov-file"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bagep</a>
-        <a href="https://bactopia.github.io/latest/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Bactopia</a>
-        <a href="https://www.dnanexus.com"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">DNA Nexus</a>
-        <a href="https://nf-co.re/pathogensurveillance/dev/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Pathogen Surveillance</a>
-        <a href="#"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Choleraseq</a>
-        <a href="https://irida.ca/platform-overview/platform-overview.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">IRIDA</a>
-        <a href="https://www.genomicepidemiology.org/services/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Centre for Genomic Epideiology</a>
-       <a href="https://nextstrain.org/"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Nextstrain</a>
-       <a href="terra.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Terra</a>
-    <div style="position:relative;">
-      
-    </div>
-  </div>
-</li>
-
-      <!-- END DROP  Pipelines MENU -->
-
-
-      <!-- GALAXY DROP-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- Main dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Galaxy
-  </a>
-
-  <!-- Galaxy  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="galaxy-intro.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Introduction</a>
-    <a href="galaxy-collections.html"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Collections</a>
-
-    <div style="position:relative;">
-      <a href="workflows.html" 
-         style="color:#333; padding:12px 16px; text-decoration:none; display:block;">
-       Workflows
-      </a>
-    </div>
-  </div>
-</li>
-
-      <!-- END DROP FOR GALAXY MENU -->
-
-      <li><a href="cholera-case-study.html">Cholera Case Study</a></li>
-      <!-- COURSE DATA MENU-->
-      <li style="position:relative; display:inline-block;" class="dropdown">
-  <!-- dropdown button -->
-  <a href="#" class="dropbtn"
-     style="background-color:white; color:#555; padding:10px 16px; font-size:14px; border:none;
-            border-radius:5px; text-decoration:none; display:inline-block;">
-     Course Data
-  </a>
-
-  <!-- Course Data Menu  dropdown content -->
-  <div class="dropdown-content"
-       style="display:none; position:absolute; background-color:#f1f1f1; min-width:180px;
-              box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); z-index:1000; border-radius:5px;
-              overflow:hidden; top:100%; left:0;">
-    
-    <a href="https://zenodo.org/records/10760705"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Raw Data </a>
-    <a href="#"
-       style="color:#333; padding:12px 16px; text-decoration:none; display:block;">Assemblies</a>
-  </div>
-</li>
-
-      <!-- End of Course data menu -->
-    </ul>
-  </div>
-</nav>
-    <!-- END OF NAV  BAR -->
+<!-- Header placeholder -->
+<div id="header-placeholder"></div>
 
 
     <main class="container">
