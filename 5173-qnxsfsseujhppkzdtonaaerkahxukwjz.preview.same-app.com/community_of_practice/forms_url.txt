@@ -1,1 +1,14 @@
 https://forms.gle/NrzuHCNgWahvNRud7
+
+
+
+
+
+<section class="hero">
+    <div class="hero-content">
+      <div class="hero-image-container">
+        <img src="../upload.wikimedia.org/wikipedia/commons/9/9d/1800x1200-cholera-bigbead.jpg" alt="Cholera bacteria under electron microscope" class="hero-image">
+        <p class="image-caption">Vibrio cholerae bacteria under scanning electron microscope</p>
+      </div>
+    </div>
+  </section>
